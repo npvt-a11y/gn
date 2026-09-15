@@ -38,16 +38,14 @@ export function ContactForm({
     setError("");
 
     const form = e.currentTarget;
-    const formData = new FormData(form);
+const formData = new FormData(form);
 
-    formData.append("access_key", "YOUR_NEW_ACCESS_KEY");
-    formData.append(
-      "subject",
-      "New Website Inquiry - Gilgit Naturals"
-    );
-    formData.append(
-      "from_name",
-      "Gilgit Naturals Website"
+formData.append("access_key", "9bfede21-c311-4a10-b5b6-8bd4265ff798");
+formData.append(
+  "subject",
+  "New Wholesale Quotation Request - Gilgit Naturals"
+);
+formData.append("from_name", "Gilgit Naturals Website");
     );
 
     try {

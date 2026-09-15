@@ -110,7 +110,7 @@ export function Navbar() {
 
       <div
         className={clsx(
-          "fixed inset-0 top-[57px] z-40 bg-cream transition-all duration-500 xl:hidden",
+          "fixed inset-x-0 top-[57px] bottom-0 z-40 bg-[#f7f5f0] shadow-[0_8px_20px_rgba(26,58,42,0.12)] transition-all duration-500 xl:hidden",
           open
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
@@ -123,7 +123,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={clsx(
-                  "border-b border-border py-4 font-serif text-2xl text-forest transition-all duration-500",
+                  "border-b border-border py-4 font-serif text-2xl text-[#1a3a2a] transition-all duration-500",
                   open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
                 )}
                 style={{ transitionDelay: open ? `${i * 40}ms` : "0ms" }}

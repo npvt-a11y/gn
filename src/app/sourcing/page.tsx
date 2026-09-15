@@ -20,16 +20,17 @@ export default function SourcingPage() {
       <PageHero
         eyebrow="Origin"
         title="Sourced From the Mountains of Gilgit"
-        description="About geography, tradition and the connection between source and final wholesale product."
+        description="A storytelling page about geography, tradition and the connection between source and final wholesale product."
       />
 
       <section className="relative min-h-[50vh] overflow-hidden">
         <Image
-         src="/images/mont2.jpg"
-  alt="GB MOUNTAIN"
-  width={620}
-  height={386.75}
-  className="h-auto w-full"
+          src={IMAGES.valley}
+          alt="Cinematic mountain valley landscape of northern Pakistan near Gilgit-Baltistan"
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
         />
         <div className="absolute inset-0 bg-forest/45" />
       </section>
@@ -74,13 +75,15 @@ export default function SourcingPage() {
             <p className="eyebrow mb-4">Region map</p>
             <h3 className="font-serif text-2xl text-forest">
               Gilgit-Baltistan · Northern Pakistan
-            </h3>
-            <div className="mt-8 aspect-[16/10] overflow-hidden border border-border bg-cream-dark/60">
-              <div className="flex h-full flex-col items-center justify-center p-8 text-center">
-                <svg
-                  viewBox="0 0 200 140"
-                  className="h-40 w-full max-w-sm text-forest"
-                  aria-hidden
+        <div className="mt-8 aspect-[16/10] overflow-hidden border border-border bg-cream-dark/60">
+  <Image
+    src="/images/map.jpg"
+    alt="Gilgit-Baltistan, Northern Pakistan"
+    width={1600}
+    height={1000}
+    className="h-full w-full object-contain"
+  />
+</div>
                 >
                   <rect
                     x="10"

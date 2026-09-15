@@ -25,12 +25,11 @@ export default function SourcingPage() {
 
       <section className="relative min-h-[50vh] overflow-hidden">
         <Image
-          src={public/images/images%20(1).jpeg}
-          alt="Cinematic mountain valley landscape of northern Pakistan near Gilgit-Baltistan"
-          fill
-          className="object-cover"
-          sizes="100vw"
-          priority
+         src="/images/mont2.jpg"
+  alt="GB MOUNTAIN"
+  width={620}
+  height={386.75}
+  className="h-auto w-full"
         />
         <div className="absolute inset-0 bg-forest/45" />
       </section>

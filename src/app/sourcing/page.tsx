@@ -20,12 +20,12 @@ export default function SourcingPage() {
       <PageHero
         eyebrow="Origin"
         title="Sourced From the Mountains of Gilgit"
-        description="A storytelling page about geography, tradition and the connection between source and final wholesale product."
+        description="About geography, tradition and the connection between source and final wholesale product."
       />
 
       <section className="relative min-h-[50vh] overflow-hidden">
         <Image
-          src={IMAGES.valley}
+          src={public/images/images%20(1).jpeg}
           alt="Cinematic mountain valley landscape of northern Pakistan near Gilgit-Baltistan"
           fill
           className="object-cover"

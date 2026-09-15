@@ -77,13 +77,11 @@ export default function QualityPage() {
             />
           </Reveal>
           <Reveal scale className="relative aspect-[5/4] overflow-hidden">
-            <Image
-              src={IMAGES.product}
-              alt="Carefully presented natural product representing quality-focused Shilajit handling"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
+            <img
+  src="/images/pcsir-shilajit-report.jpg"
+  alt="PCSIR laboratory test report for Gilgit Naturals Salajeet"
+  className="h-auto w-full"
+/>
           </Reveal>
         </div>
       </section>

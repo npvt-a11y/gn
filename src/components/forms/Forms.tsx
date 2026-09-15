@@ -1,4 +1,3 @@
-```tsx
 "use client";
 
 import { useState, type FormEvent } from "react";
@@ -25,79 +24,26 @@ export function ContactForm({
   fields,
   submitLabel,
   successTitle = "Inquiry received",
-  successMessage = "Thank you. Your message has been received. We will respond using the contact details you provided.",
+  successMessage = "Thank you. Your message has been noted. We will respond using the contact details you provided. (Form submission is a demonstration success state — connect to your backend or form service to go live.)",
 }: FormProps) {
   const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [error, setError] = useState("");
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
-    setSending(true);
-    setError("");
-
-    const form = e.currentTarget;
-const formData = new FormData(form);
-
-formData.append("access_key", "9bfede21-c311-4a10-b5b6-8bd4265ff798");
-formData.append(
-  "subject",
-  "New Wholesale Quotation Request - Gilgit Naturals"
-);
-formData.append("from_name", "Gilgit Naturals Website");
-    );
-
-    try {
-      const response = await fetch(
-        "https://api.web3forms.com/submit",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-
-      const data = await response.json();
-
-      if (data.success) {
-        setSubmitted(true);
-        form.reset();
-      } else {
-        setError(
-          data.message ||
-            "Something went wrong. Please try again."
-        );
-      }
-    } catch {
-      setError(
-        "Unable to send your request. Please check your internet connection and try again."
-      );
-    } finally {
-      setSending(false);
-    }
+    setSubmitted(true);
   }
 
   if (submitted) {
     return (
       <div className="border border-gold/30 bg-white p-10 text-center md:p-14">
-        <p className="eyebrow mb-4">
-          Thank you
-        </p>
-
-        <h3 className="font-serif text-3xl text-forest">
-          {successTitle}
-        </h3>
-
+        <p className="eyebrow mb-4">Thank you</p>
+        <h3 className="font-serif text-3xl text-forest">{successTitle}</h3>
         <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-charcoal-muted">
           {successMessage}
         </p>
-
         <button
           type="button"
-          onClick={() => {
-            setSubmitted(false);
-            setError("");
-          }}
+          onClick={() => setSubmitted(false)}
           className="mt-8 text-xs tracking-[0.12em] text-forest uppercase underline underline-offset-4"
         >
           Send another inquiry
@@ -107,10 +53,7 @@ formData.append("from_name", "Gilgit Naturals Website");
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-5"
-    >
+    <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid gap-5 md:grid-cols-2">
         {fields.map((field) => {
           const fullWidth =
@@ -122,26 +65,15 @@ formData.append("from_name", "Gilgit Naturals Website");
           return (
             <div
               key={field.name}
-              className={
-                fullWidth
-                  ? "md:col-span-2"
-                  : undefined
-              }
+              className={fullWidth ? "md:col-span-2" : undefined}
             >
               <label
                 htmlFor={field.name}
                 className="mb-2 block text-[11px] tracking-[0.12em] text-charcoal-muted uppercase"
               >
                 {field.label}
-
-                {field.required && (
-                  <span className="text-gold">
-                    {" "}
-                    *
-                  </span>
-                )}
+                {field.required && <span className="text-gold"> *</span>}
               </label>
-
               {field.as === "textarea" ? (
                 <textarea
                   id={field.name}
@@ -162,12 +94,8 @@ formData.append("from_name", "Gilgit Naturals Website");
                   <option value="" disabled>
                     Select…
                   </option>
-
                   {field.options?.map((opt) => (
-                    <option
-                      key={opt}
-                      value={opt}
-                    >
+                    <option key={opt} value={opt}>
                       {opt}
                     </option>
                   ))}
@@ -176,13 +104,9 @@ formData.append("from_name", "Gilgit Naturals Website");
                 <input
                   id={field.name}
                   name={field.name}
-                  type={
-                    field.type || "text"
-                  }
+                  type={field.type || "text"}
                   required={field.required}
-                  placeholder={
-                    field.placeholder
-                  }
+                  placeholder={field.placeholder}
                   className="input-field"
                 />
               )}
@@ -190,22 +114,9 @@ formData.append("from_name", "Gilgit Naturals Website");
           );
         })}
       </div>
-
       <div className="pt-2">
-        {error && (
-          <p className="mb-4 text-sm text-red-600">
-            {error}
-          </p>
-        )}
-
-        <Button
-          type="submit"
-          variant="primary"
-          disabled={sending}
-        >
-          {sending
-            ? "Sending..."
-            : submitLabel}
+        <Button type="submit" variant="primary">
+          {submitLabel}
         </Button>
       </div>
     </form>
@@ -213,43 +124,13 @@ formData.append("from_name", "Gilgit Naturals Website");
 }
 
 export const wholesaleFields: Field[] = [
-  {
-    name: "fullName",
-    label: "Full Name",
-    required: true,
-  },
-  {
-    name: "businessName",
-    label: "Business Name",
-    required: true,
-  },
-  {
-    name: "phone",
-    label: "Phone",
-    type: "tel",
-    required: true,
-  },
-  {
-    name: "whatsapp",
-    label: "WhatsApp",
-    type: "tel",
-  },
-  {
-    name: "email",
-    label: "Email",
-    type: "email",
-    required: true,
-  },
-  {
-    name: "city",
-    label: "City",
-    required: true,
-  },
-  {
-    name: "country",
-    label: "Country",
-    placeholder: "Pakistan",
-  },
+  { name: "fullName", label: "Full Name", required: true },
+  { name: "businessName", label: "Business Name", required: true },
+  { name: "phone", label: "Phone", type: "tel", required: true },
+  { name: "whatsapp", label: "WhatsApp", type: "tel" },
+  { name: "email", label: "Email", type: "email", required: true },
+  { name: "city", label: "City", required: true },
+  { name: "country", label: "Country", placeholder: "Pakistan" },
   {
     name: "businessType",
     label: "Business Type",
@@ -258,6 +139,7 @@ export const wholesaleFields: Field[] = [
     options: [
       "Retailer",
       "Reseller",
+      "Reseller",
       "Gym",
       "Wellness Business",
       "Online Seller",
@@ -265,101 +147,47 @@ export const wholesaleFields: Field[] = [
       "Other",
     ],
   },
-  {
-    name: "quantity",
-    label: "Estimated Quantity",
-    required: true,
-  },
+  { name: "quantity", label: "Estimated Quantity", required: true },
   {
     name: "packaging",
     label: "Preferred Packaging",
     as: "select",
-    options: [
-      "Jars",
-      "Bulk containers",
-      "Flexible / discuss",
-      "Private label",
-    ],
+    options: ["Jars", "Bulk containers", "Flexible / discuss", "Private label"],
   },
   {
     name: "privateLabel",
     label: "Private Label Required?",
     as: "select",
-    options: [
-      "No",
-      "Yes",
-      "Interested — discuss",
-    ],
+    options: ["No", "Yes", "Interested — discuss"],
   },
   {
     name: "additional",
     label: "Additional Requirements",
     as: "textarea",
-    placeholder:
-      "Tell us about your wholesale needs…",
+    placeholder: "Tell us about your wholesale needs…",
   },
 ];
 
 export const contactFields: Field[] = [
-  {
-    name: "name",
-    label: "Name",
-    required: true,
-  },
-  {
-    name: "phone",
-    label: "Phone",
-    type: "tel",
-    required: true,
-  },
-  {
-    name: "email",
-    label: "Email",
-    type: "email",
-    required: true,
-  },
-  {
-    name: "subject",
-    label: "Subject",
-    required: true,
-  },
+  { name: "name", label: "Name", required: true },
+  { name: "phone", label: "Phone", type: "tel", required: true },
+  { name: "email", label: "Email", type: "email", required: true },
+  { name: "subject", label: "Subject", required: true },
   {
     name: "message",
     label: "Message",
     as: "textarea",
     required: true,
-    placeholder:
-      "How can we help?",
+    placeholder: "How can we help?",
   },
 ];
 
 export const inquiryFields: Field[] = [
-  {
-    name: "name",
-    label: "Name",
-    required: true,
-  },
-  {
-    name: "businessName",
-    label: "Business Name",
-  },
-  {
-    name: "phone",
-    label: "Phone / WhatsApp",
-    type: "tel",
-    required: true,
-  },
-  {
-    name: "email",
-    label: "Email",
-    type: "email",
-    required: true,
-  },
-  {
-    name: "city",
-    label: "City",
-    required: true,
-  },
+  { name: "name", label: "Name", required: true },
+  { name: "businessName", label: "Business Name" },
+  { name: "phone", label: "Phone / WhatsApp", type: "tel", required: true },
+  { name: "email", label: "Email", type: "email", required: true },
+  { name: "city", label: "City", required: true },
   {
     name: "businessType",
     label: "Business Type",
@@ -375,26 +203,17 @@ export const inquiryFields: Field[] = [
       "Other",
     ],
   },
-  {
-    name: "quantity",
-    label: "Required Quantity",
-  },
+  { name: "quantity", label: "Required Quantity" },
   {
     name: "packaging",
     label: "Packaging Preference",
     as: "select",
-    options: [
-      "Jars",
-      "Bulk",
-      "Discuss",
-    ],
+    options: ["Jars", "Bulk", "Discuss"],
   },
   {
     name: "message",
     label: "Message",
     as: "textarea",
-    placeholder:
-      "Share any details about your wholesale inquiry…",
+    placeholder: "Share any details about your wholesale inquiry…",
   },
 ];
-```

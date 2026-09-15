@@ -40,18 +40,24 @@ export function ContactForm({
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    formData.append("access_key", "formData.append("access_key", "9bfede21-c311-4a10-b5b6-8bd4265ff798");");
+    formData.append("access_key", "YOUR_NEW_ACCESS_KEY");
     formData.append(
       "subject",
-      "New Wholesale Quotation Request - Gilgit Naturals"
+      "New Website Inquiry - Gilgit Naturals"
     );
-    formData.append("from_name", "Gilgit Naturals Website");
+    formData.append(
+      "from_name",
+      "Gilgit Naturals Website"
+    );
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://api.web3forms.com/submit",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       const data = await response.json();
 
@@ -60,7 +66,8 @@ export function ContactForm({
         form.reset();
       } else {
         setError(
-          data.message || "Something went wrong. Please try again."
+          data.message ||
+            "Something went wrong. Please try again."
         );
       }
     } catch {
@@ -75,7 +82,9 @@ export function ContactForm({
   if (submitted) {
     return (
       <div className="border border-gold/30 bg-white p-10 text-center md:p-14">
-        <p className="eyebrow mb-4">Thank you</p>
+        <p className="eyebrow mb-4">
+          Thank you
+        </p>
 
         <h3 className="font-serif text-3xl text-forest">
           {successTitle}
@@ -100,7 +109,10 @@ export function ContactForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-5"
+    >
       <div className="grid gap-5 md:grid-cols-2">
         {fields.map((field) => {
           const fullWidth =
@@ -112,15 +124,23 @@ export function ContactForm({
           return (
             <div
               key={field.name}
-              className={fullWidth ? "md:col-span-2" : undefined}
+              className={
+                fullWidth
+                  ? "md:col-span-2"
+                  : undefined
+              }
             >
               <label
                 htmlFor={field.name}
                 className="mb-2 block text-[11px] tracking-[0.12em] text-charcoal-muted uppercase"
               >
                 {field.label}
+
                 {field.required && (
-                  <span className="text-gold"> *</span>
+                  <span className="text-gold">
+                    {" "}
+                    *
+                  </span>
                 )}
               </label>
 
@@ -146,7 +166,10 @@ export function ContactForm({
                   </option>
 
                   {field.options?.map((opt) => (
-                    <option key={opt} value={opt}>
+                    <option
+                      key={opt}
+                      value={opt}
+                    >
                       {opt}
                     </option>
                   ))}
@@ -155,9 +178,13 @@ export function ContactForm({
                 <input
                   id={field.name}
                   name={field.name}
-                  type={field.type || "text"}
+                  type={
+                    field.type || "text"
+                  }
                   required={field.required}
-                  placeholder={field.placeholder}
+                  placeholder={
+                    field.placeholder
+                  }
                   className="input-field"
                 />
               )}
@@ -178,7 +205,9 @@ export function ContactForm({
           variant="primary"
           disabled={sending}
         >
-          {sending ? "Sending..." : submitLabel}
+          {sending
+            ? "Sending..."
+            : submitLabel}
         </Button>
       </div>
     </form>
@@ -268,7 +297,8 @@ export const wholesaleFields: Field[] = [
     name: "additional",
     label: "Additional Requirements",
     as: "textarea",
-    placeholder: "Tell us about your wholesale needs…",
+    placeholder:
+      "Tell us about your wholesale needs…",
   },
 ];
 
@@ -300,7 +330,8 @@ export const contactFields: Field[] = [
     label: "Message",
     as: "textarea",
     required: true,
-    placeholder: "How can we help?",
+    placeholder:
+      "How can we help?",
   },
 ];
 
@@ -364,7 +395,8 @@ export const inquiryFields: Field[] = [
     name: "message",
     label: "Message",
     as: "textarea",
-    placeholder: "Share any details about your wholesale inquiry…",
+    placeholder:
+      "Share any details about your wholesale inquiry…",
   },
 ];
 ```

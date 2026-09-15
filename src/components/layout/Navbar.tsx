@@ -110,7 +110,7 @@ export function Navbar() {
 
       <div
         className={clsx(
-          "fixed inset-x-0 top-[57px] bottom-0 z-40 bg-[#f7f5f0] shadow-[0_8px_20px_rgba(26,58,42,0.12)] transition-all duration-500 xl:hidden",
+          "fixed inset-x-0 top-16 z-[60] h-[calc(100dvh-4rem)] overflow-y-auto bg-[#f7f5f0] shadow-[0_8px_20px_rgba(26,58,42,0.12)] transition-all duration-500 xl:hidden",
           open
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"

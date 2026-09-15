@@ -13,9 +13,7 @@ export const articles: Article[] = [
     slug: "what-is-shilajit",
     title: "What Is Shilajit? A Complete Guide to Its Origin, Formation, and Traditional Use",
     excerpt:
-      "If you've spent any time researching natural wellness products, you've probably come across the term Shilajit. But what is Shilajit, exactly
-      and why has this mineral-rich substance been valued for generations in mountain communities across South and Central Asia? This guide breaks down 
-  everything you need to know: how Shilajit forms, why high-altitude regions like Gilgit-Baltistan matter, and how raw Shilajit becomes a usable, purified product.",
+      "If you've spent any time researching natural wellness products, you've probably come across the term Shilajit. But what is Shilajit, exactly and why has this mineral-rich substance been valued for generations in mountain communities across South and Central Asia? This guide breaks down everything you need to know: how Shilajit forms, why high-altitude regions like Gilgit-Baltistan matter, and how raw Shilajit becomes a usable, purified product.",
     category: "Education",
     readTime: "5 min",
     date: "2025-01-10",
@@ -29,17 +27,7 @@ export const articles: Article[] = [
       {
         heading: "How Is Shilajit Formed?",
         paragraphs: [
-          "Understanding what Shilajit is requires understanding how it forms, because the process is unlike almost anything else in nature.
-
-Shilajit develops gradually as organic plant matter becomes trapped within layers of mountain rock. Over centuries, this trapped material breaks down under the influence of several environmental factors working together:
-
-Altitude — high-elevation pressure and exposure conditions
-Temperature cycles — repeated freezing and thawing that gradually breaks down organic material
-Microbial activity — natural decomposition processes that occur over extended timescales
-Geological pressure — the slow compression of organic layers within rock formations"
-  
-
-During warmer months, this substance becomes visible on exposed rock surfaces at high altitude, where it has historically been collected by local communities. Because of its unusual origin — part geological, part biological — Shilajit occupies a unique category among natural substances. It isn't a plant extract, and it isn't a mined mineral ore in the conventional sense. It's something in between, shaped by thousands of years of environmental pressure.",
+          "Understanding what Shilajit is requires understanding how it forms, because the process is unlike almost anything else in nature. Shilajit develops gradually as organic plant matter becomes trapped within layers of mountain rock. Over centuries, this trapped material breaks down under the influence of several environmental factors working together: Altitude — high-elevation pressure and exposure conditions Temperature cycles — repeated freezing and thawing that gradually breaks down organic material Microbial activity — natural decomposition processes that occur over extended timescales Geological pressure — the slow compression of organic layers within rock formations During warmer months, this substance becomes visible on exposed rock surfaces at high altitude, where it has historically been collected by local communities. Because of its unusual origin — part geological, part biological — Shilajit occupies a unique category among natural substances. It isn't a plant extract, and it isn't a mined mineral ore in the conventional sense. It's something in between, shaped by thousands of years of environmental pressure.",
         ],
       },
       {

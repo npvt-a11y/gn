@@ -29,21 +29,21 @@ export default function SourcingPage() {
         description="A story of geography, tradition and our connection to the origin of Gilgit Shilajit."
       />
 
-      {/* Hero Image */}
-      <section className="relative min-h-[50vh] overflow-hidden">
-        <Image
-          src={IMAGES.valley}
-          alt="Mountain valley landscape of northern Pakistan near Gilgit-Baltistan"
-          fill
-          className="object-cover"
-          sizes="100vw"
-          priority
-        />
+   {/* Hero Image */}
+<section className="relative min-h-[50vh] overflow-hidden">
+  <Image
+    src={IMAGES.valley}
+    alt="Mountain valley landscape of northern Pakistan near Gilgit-Baltistan"
+    fill
+    className="object-cover"
+    sizes="100vw"
+    priority
+  />
 
-        {/* Premium Gilgit Naturals green treatment */}
-        <div className="absolute inset-0 bg-forest/40 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-forest/15" />
-      </section>
+  {/* Green color treatment */}
+  <div className="absolute inset-0 bg-forest/55 mix-blend-color" />
+  <div className="absolute inset-0 bg-forest/25 mix-blend-multiply" />
+</section>
 
       {/* Geography */}
       <section className="mx-auto max-w-3xl px-6 py-20 lg:px-8 lg:py-28">

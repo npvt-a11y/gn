@@ -11,7 +11,12 @@ export const metadata = createMetadata({
   description:
     "Sourced from the mountains of Gilgit — the story of geography, traditional association with Shilajit, and our sourcing philosophy.",
   path: "/sourcing",
-  keywords: ["Gilgit Shilajit", "wholesale shilajit Pakistan"],
+  keywords: [
+    "Gilgit Shilajit",
+    "wholesale Shilajit Pakistan",
+    "Gilgit-Baltistan Shilajit",
+    "Shilajit supplier Pakistan",
+  ],
 });
 
 export default function SourcingPage() {
@@ -20,117 +25,126 @@ export default function SourcingPage() {
       <PageHero
         eyebrow="Origin"
         title="Sourced From the Mountains of Gilgit"
-        description="A storytelling page about geography, tradition and the connection between source and final wholesale product."
+        description="A story of geography, tradition and our connection to the origin of Gilgit Shilajit."
       />
 
+      {/* Hero Image */}
       <section className="relative min-h-[50vh] overflow-hidden">
         <Image
           src={IMAGES.valley}
-          alt="Cinematic mountain valley landscape of northern Pakistan near Gilgit-Baltistan"
+          alt="Mountain valley landscape of northern Pakistan near Gilgit-Baltistan"
           fill
           className="object-cover"
           sizes="100vw"
           priority
         />
+
         <div className="absolute inset-0 bg-forest/45" />
       </section>
 
+      {/* Geography */}
       <section className="mx-auto max-w-3xl px-6 py-20 lg:px-8 lg:py-28">
         <Reveal>
           <SectionHeader
             eyebrow="Geography"
-            title="Gilgit’s mountainous landscape"
-            description="Gilgit-Baltistan sits among some of the world’s most dramatic mountain systems in northern Pakistan. High elevation, rocky terrain and remote valleys shape the environment traditionally associated with Shilajit."
+            title="Gilgit's mountainous landscape"
+            description="Gilgit-Baltistan sits among some of the world's most dramatic mountain systems in northern Pakistan. High elevation, rocky terrain and remote valleys form the geographic setting traditionally associated with Shilajit."
           />
+
           <div className="prose-brand mt-10 space-y-5 text-base">
             <p>
-              We do not claim exclusive rights to an entire mountain range or
-              invent geographic myths. Our positioning is straightforward: Gilgit
-              Naturals is connected to Gilgit-origin Shilajit and treats sourcing
-              as a responsibility — not a marketing slogan.
+              Gilgit-Baltistan is known for its dramatic mountain landscapes,
+              high-altitude valleys and rugged terrain. For Gilgit Naturals,
+              this region is central to our sourcing story and our connection
+              with Gilgit-origin Shilajit.
             </p>
+
+            <p>
+              We do not claim exclusive rights to an entire mountain range or
+              invent geographic myths. Our positioning is straightforward:
+              Gilgit Naturals is connected to Gilgit-origin Shilajit and treats
+              sourcing as a responsibility — not simply a marketing slogan.
+            </p>
+
             <p>
               Traditional association with Shilajit in these highlands informs
-              how local knowledge and careful collection practices are respected
-              within a modern wholesale supply model.
+              our respect for local knowledge and careful collection practices
+              while we build a modern wholesale supply model.
             </p>
           </div>
         </Reveal>
 
+        {/* Sourcing Philosophy */}
         <Reveal>
-          <h2 className="font-serif mt-16 text-3xl text-forest">
+          <h2 className="mt-16 font-serif text-3xl text-forest">
             Our sourcing philosophy
           </h2>
+
           <div className="divider-gold mt-6" />
+
           <ul className="mt-8 space-y-4 text-sm leading-relaxed text-charcoal-muted">
-            <li>• Prioritize authenticity of origin communication</li>
-            <li>• Prefer careful selection over volume-at-any-cost</li>
-            <li>• Maintain transparency about process limitations</li>
-            <li>• Build long-term supply relationships, not one-off hype</li>
+            <li>
+              <span className="text-gold">•</span>{" "}
+              Prioritize authenticity of origin communication
+            </li>
+
+            <li>
+              <span className="text-gold">•</span>{" "}
+              Prefer careful selection over volume-at-any-cost
+            </li>
+
+            <li>
+              <span className="text-gold">•</span>{" "}
+              Maintain transparency about process limitations
+            </li>
+
+            <li>
+              <span className="text-gold">•</span>{" "}
+              Build long-term supply relationships, not one-off hype
+            </li>
           </ul>
         </Reveal>
 
+        {/* Region Map */}
         <Reveal>
           <div className="mt-16 border border-border bg-white p-8 md:p-10">
-            <p className="eyebrow mb-4">Region map</p>
+            <p className="eyebrow mb-4">Region Map</p>
+
             <h3 className="font-serif text-2xl text-forest">
               Gilgit-Baltistan · Northern Pakistan
-        <div className="mt-8 aspect-[16/10] overflow-hidden border border-border bg-cream-dark/60">
-  <Image
-    src="/images/map.jpg"
-    alt="Gilgit-Baltistan, Northern Pakistan"
-    width={1600}
-    height={1000}
-    className="h-full w-full object-contain"
-  />
-</div>
-                >
-                  <rect
-                    x="10"
-                    y="10"
-                    width="180"
-                    height="120"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="0.8"
-                    opacity="0.25"
-                  />
-                  <path
-                    d="M30 100 L55 55 L75 80 L100 35 L130 70 L155 45 L175 90 L30 100Z"
-                    fill="currentColor"
-                    opacity="0.08"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                  />
-                  <circle cx="100" cy="58" r="4" fill="#a68b5b" />
-                  <text
-                    x="100"
-                    y="78"
-                    textAnchor="middle"
-                    fontSize="8"
-                    fill="currentColor"
-                    opacity="0.7"
-                  >
-                    Gilgit
-                  </text>
-                </svg>
-                <p className="mt-4 max-w-sm text-xs leading-relaxed text-charcoal-muted">
-                  Simplified illustrative map for orientation. Not a
-                  survey-grade geographic document.
-                </p>
-              </div>
+            </h3>
+
+            <div className="mt-8 overflow-hidden border border-border bg-cream-dark/60">
+              <Image
+                src="/images/map.jpg"
+                alt="Map of Gilgit-Baltistan in northern Pakistan"
+                width={1600}
+                height={1000}
+                className="h-auto w-full object-contain"
+              />
             </div>
+
+            <p className="mt-4 max-w-xl text-xs leading-relaxed text-charcoal-muted">
+              Gilgit-Baltistan is the mountainous region in northern Pakistan
+              associated with our sourcing story and the origin of the
+              Shilajit we offer.
+            </p>
           </div>
         </Reveal>
 
+        {/* From Source to Customer */}
         <Reveal>
-          <div className="mt-12">
+          <div className="mt-16 border-t border-border pt-10">
             <p className="text-sm leading-relaxed text-charcoal-muted">
               Source → processing → quality → wholesale customer. That chain is
               the heart of Gilgit Naturals.
             </p>
+
             <div className="mt-8 flex flex-wrap gap-4">
-              <Button href="/processing">How It Is Processed</Button>
+              <Button href="/processing">
+                How It Is Processed
+              </Button>
+
               <Button href="/quality" variant="secondary">
                 Quality Standards
               </Button>
@@ -139,9 +153,10 @@ export default function SourcingPage() {
         </Reveal>
       </section>
 
+      {/* Wholesale CTA */}
       <CtaBanner
         title="From Gilgit to your business"
-        description="Request a wholesale conversation grounded in origin and quality."
+        description="Request a wholesale conversation grounded in origin, process and quality."
       />
     </>
   );

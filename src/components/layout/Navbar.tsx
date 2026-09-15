@@ -92,7 +92,9 @@ export function Navbar() {
             type="button"
             className={clsx(
               "flex h-10 w-10 items-center justify-center transition-colors duration-500 xl:hidden",
-              lightNav ? "text-white" : "text-forest"
+              lightNav
+                ? "bg-forest/85 text-white hover:bg-forest"
+                : "bg-forest text-cream hover:bg-forest-light"
             )}
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}

@@ -11,9 +11,9 @@ export type Article = {
 export const articles: Article[] = [
   {
     slug: "what-is-shilajit",
-    title: "What Is Shilajit?",
+    title: "What Is Shilajit? A Complete Guide to Its Origin, Formation, and Traditional Use",
     excerpt:
-      "An accessible introduction to Shilajit its natural origin, mountain environment, and traditional place in wellness cultures.",
+      "If you've spent any time researching natural wellness products, you've probably come across the term Shilajit. But what is Shilajit, exactly — and why has this mineral-rich substance been valued for generations in mountain communities across South and Central Asia? This guide breaks down everything you need to know: how Shilajit forms, why high-altitude regions like Gilgit-Baltistan matter, and how raw Shilajit becomes a usable, purified product.",
     category: "Education",
     readTime: "6 min",
     date: "2025-01-10",
@@ -25,10 +25,11 @@ export const articles: Article[] = [
         ],
       },
       {
-        heading: "Natural formation",
+        heading: "What is shilajeet?",
         paragraphs: [
-          "Shilajit does not grow like a plant or mineral ore in a simple sense. It forms gradually through the breakdown of plant matter trapped in mountainous rock systems, influenced by altitude, temperature cycles, and microbial activity over extended timescales.",
-          "What collectors typically encounter is a dark, sticky substance that softens with warmth. Raw material requires careful cleaning and purification before it is suitable for use.",
+          "Shilajit is a naturally occurring, mineral-rich substance found seeping from rock faces in high mountain regions around the world, including the Himalayas, the Karakoram range, and the Hindu Kush. It forms over extremely long periods of time as organic plant material slowly decomposes and interacts with layers of rock, eventually producing a dense, sticky, resin-like exudate.
+
+During warmer months, this substance becomes visible on exposed rock surfaces at high altitude, where it has historically been collected by local communities. Because of its unusual origin — part geological, part biological — Shilajit occupies a unique category among natural substances. It isn't a plant extract, and it isn't a mined mineral ore in the conventional sense. It's something in between, shaped by thousands of years of environmental pressure.",
         ],
       },
       {

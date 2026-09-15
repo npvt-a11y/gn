@@ -140,19 +140,186 @@ export default function QualityPage() {
         </div>
 
         <Reveal>
-          <div className="mt-16 grid gap-6 md:grid-cols-2">
-            <div className="border border-dashed border-border bg-white p-8">
-              <p className="text-[11px] tracking-[0.14em] text-gold uppercase">
-                Placeholder
-              </p>
-              <h3 className="font-serif mt-3 text-xl text-forest">
-                Certificates & test reports
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-charcoal-muted">
-                Upload space for future laboratory reports or certificates when
-                independently obtained. We do not invent certifications.
-              </p>
-            </div>
+         <div className="border border-border bg-white p-8">
+  <div className="mb-6">
+    <p className="text-[11px] tracking-[0.14em] text-gold uppercase">
+      Independent Laboratory Analysis
+    </p>
+
+    <h3 className="mt-3 font-serif text-2xl text-forest">
+      PCSIR Test Report
+    </h3>
+
+    <p className="mt-3 text-sm leading-relaxed text-charcoal-muted">
+      Our Salajeet sample was tested by the Pakistan Council of Scientific
+      & Industrial Research (PCSIR), Laboratories Complex, Lahore.
+    </p>
+  </div>
+
+  {/* Original Laboratory Report */}
+  <div className="overflow-hidden border border-border bg-cream-dark/20">
+    <img
+      src="/images/pcsir-shilajit-report.jpg"
+      alt="PCSIR laboratory test report for Gilgit Naturals Salajeet"
+      className="h-auto w-full"
+    />
+  </div>
+
+  {/* Report Information */}
+  <div className="mt-6 grid gap-4 sm:grid-cols-2">
+    <div className="border border-border p-4">
+      <p className="text-[10px] tracking-[0.12em] text-charcoal-muted uppercase">
+        Laboratory
+      </p>
+      <p className="mt-1 text-sm text-forest">
+        PCSIR Laboratories Complex, Lahore
+      </p>
+    </div>
+
+    <div className="border border-border p-4">
+      <p className="text-[10px] tracking-[0.12em] text-charcoal-muted uppercase">
+        Report Number
+      </p>
+      <p className="mt-1 text-sm text-forest">
+        FBRC/SF/ANAL./REP./497
+      </p>
+    </div>
+
+    <div className="border border-border p-4">
+      <p className="text-[10px] tracking-[0.12em] text-charcoal-muted uppercase">
+        Sample
+      </p>
+      <p className="mt-1 text-sm text-forest">
+        Salajeet
+      </p>
+    </div>
+
+    <div className="border border-border p-4">
+      <p className="text-[10px] tracking-[0.12em] text-charcoal-muted uppercase">
+        Report Date
+      </p>
+      <p className="mt-1 text-sm text-forest">
+        July 04, 2024
+      </p>
+    </div>
+  </div>
+
+  {/* Key Results */}
+  <div className="mt-8">
+    <p className="text-[11px] tracking-[0.14em] text-gold uppercase">
+      Reported Results
+    </p>
+
+    <div className="mt-4 divide-y divide-border border-y border-border">
+      <div className="flex items-center justify-between gap-4 py-4">
+        <span className="text-sm text-charcoal-muted">
+          Fulvic Acid
+        </span>
+        <span className="font-medium text-forest">
+          2.49%
+        </span>
+      </div>
+
+      <div className="flex items-center justify-between gap-4 py-4">
+        <span className="text-sm text-charcoal-muted">
+          Lead
+        </span>
+        <span className="font-medium text-forest">
+          Not Detected
+        </span>
+      </div>
+
+      <div className="flex items-center justify-between gap-4 py-4">
+        <span className="text-sm text-charcoal-muted">
+          Cadmium
+        </span>
+        <span className="font-medium text-forest">
+          Not Detected
+        </span>
+      </div>
+
+      <div className="flex items-center justify-between gap-4 py-4">
+        <span className="text-sm text-charcoal-muted">
+          Copper
+        </span>
+        <span className="font-medium text-forest">
+          6.75 mg/kg
+        </span>
+      </div>
+
+      <div className="flex items-center justify-between gap-4 py-4">
+        <span className="text-sm text-charcoal-muted">
+          pH (10% Solution)
+        </span>
+        <span className="font-medium text-forest">
+          5.87
+        </span>
+      </div>
+
+      <div className="flex items-center justify-between gap-4 py-4">
+        <span className="text-sm text-charcoal-muted">
+          Moisture
+        </span>
+        <span className="font-medium text-forest">
+          19.19%
+        </span>
+      </div>
+
+      <div className="flex items-center justify-between gap-4 py-4">
+        <span className="text-sm text-charcoal-muted">
+          Ash
+        </span>
+        <span className="font-medium text-forest">
+          10.08%
+        </span>
+      </div>
+
+      <div className="flex items-center justify-between gap-4 py-4">
+        <span className="text-sm text-charcoal-muted">
+          Water Solubility
+        </span>
+        <span className="font-medium text-forest">
+          &gt;150 g/100 ml
+        </span>
+      </div>
+    </div>
+  </div>
+
+  {/* Testing statement */}
+  <div className="mt-6 bg-cream-dark/40 p-5">
+    <p className="text-[11px] tracking-[0.14em] text-gold uppercase">
+      Testing Statement
+    </p>
+
+    <p className="mt-3 text-sm leading-relaxed text-charcoal-muted">
+      The submitted Salajeet sample was examined for the parameters stated
+      in the PCSIR laboratory report. The report records lead and cadmium
+      as not detected and reports a fulvic acid content of 2.49%.
+    </p>
+
+    <p className="mt-3 text-xs leading-relaxed text-charcoal-muted">
+      Statement of Non-compliance: Nil. Testing was conducted from
+      11 June 2024 to 24 June 2024 using the methods/specifications
+      stated in the laboratory report.
+    </p>
+  </div>
+
+  {/* Transparency note */}
+  <div className="mt-6 flex flex-col gap-3 border-t border-border pt-5 sm:flex-row sm:items-center sm:justify-between">
+    <div>
+      <p className="text-xs text-charcoal-muted">
+        Independent laboratory documentation
+      </p>
+      <p className="mt-1 text-sm text-forest">
+        PCSIR Laboratories Complex, Lahore
+      </p>
+    </div>
+
+    <span className="inline-flex w-fit border border-gold/40 px-4 py-2 text-[10px] tracking-[0.12em] text-gold uppercase">
+      Report No. 497
+    </span>
+  </div>
+</div>
             <div className="border border-dashed border-border bg-white p-8">
               <p className="text-[11px] tracking-[0.14em] text-gold uppercase">
                 Placeholder

@@ -13,7 +13,7 @@ export const articles: Article[] = [
     slug: "what-is-shilajit",
     title: "What Is Shilajit?",
     excerpt:
-      "An accessible introduction to Shilajit — its natural origin, mountain environment, and traditional place in wellness cultures.",
+      "An accessible introduction to Shilajit its natural origin, mountain environment, and traditional place in wellness cultures.",
     category: "Education",
     readTime: "6 min",
     date: "2025-01-10",

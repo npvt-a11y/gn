@@ -4,7 +4,7 @@ export const SITE_TAGLINE = "Authentic Shilajit from the Mountains of Gilgit";
 
 export const CONTACT = {
   phone: "+923145666328",
-  whatsapp: "+92314566632",
+  whatsapp: "+923145666328",
   email: "gilgitnaturals@gmail.com",
   instagram: "[@gilgitnaturals]",
   facebook: "[@gilgitnaturals]",
@@ -18,7 +18,7 @@ export const NAV_LINKS = [
   { href: "/quality", label: "Quality" },
   { href: "/about", label: "About" },
   { href: "/reviews", label: "Reviews" },
-  { href: "/knowledge", label: "Knowledge" },
+  { href: "/knowledge", label: "Blogs" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -31,7 +31,7 @@ export const FOOTER_NAV = [
   { href: "/about", label: "About" },
   { href: "/reviews", label: "Reviews" },
   { href: "/faq", label: "FAQ" },
-  { href: "/knowledge", label: "Knowledge" },
+  { href: "/blogs", label: "Blogs" },
   { href: "/contact", label: "Contact" },
 ] as const;
 

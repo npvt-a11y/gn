@@ -22,6 +22,7 @@ export const metadata = createMetadata({
 export default function SourcingPage() {
   return (
     <>
+      {/* Page Hero */}
       <PageHero
         eyebrow="Origin"
         title="Sourced From the Mountains of Gilgit"
@@ -39,7 +40,9 @@ export default function SourcingPage() {
           priority
         />
 
-        <div className="absolute inset-0 bg-forest/45" />
+        {/* Premium Gilgit Naturals green treatment */}
+        <div className="absolute inset-0 bg-forest/40 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-forest/15" />
       </section>
 
       {/* Geography */}

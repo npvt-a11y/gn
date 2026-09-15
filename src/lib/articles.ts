@@ -18,22 +18,17 @@ export const articles: Article[] = [
     readTime: "5 min",
     date: "2025-01-10",
     content: [
-      {
+      { 
+        heading: "What Is Shilajit?",
         paragraphs: [
           "Shilajit is a naturally occurring, mineral-rich substance found seeping from rock faces in high mountain regions around the world, including the Himalayas, the Karakoram range, and the Hindu Kush. It forms over extremely long periods of time as organic plant material slowly decomposes and interacts with layers of rock, eventually producing a dense, sticky, resin-like exudate.",
           "During warmer months, this substance becomes visible on exposed rock surfaces at high altitude, where it has historically been collected by local communities. Because of its unusual origin — part geological, part biological — Shilajit occupies a unique category among natural substances. It isn't a plant extract, and it isn't a mined mineral ore in the conventional sense. It's something in between, shaped by thousands of years of environmental pressure.",
         ],
-      },
+      
       {
         heading: "How Is Shilajit Formed?",
         paragraphs: [
-          "Understanding what Shilajit is requires understanding how it forms, because the process is unlike almost anything else in nature. Shilajit develops gradually as organic plant matter becomes trapped within layers of mountain rock. Over centuries, this trapped material breaks down under the influence of several environmental factors working together: Altitude — high-elevation pressure and exposure conditions Temperature cycles — repeated freezing and thawing that gradually breaks down organic material Microbial activity — natural decomposition processes that occur over extended timescales Geological pressure — the slow compression of organic layers within rock formations During warmer months, this substance becomes visible on exposed rock surfaces at high altitude, where it has historically been collected by local communities. Because of its unusual origin — part geological, part biological — Shilajit occupies a unique category among natural substances. It isn't a plant extract, and it isn't a mined mineral ore in the conventional sense. It's something in between, shaped by thousands of years of environmental pressure.",
-        ],
-      },
-      {
-        heading: "Why mountains matter",
-        paragraphs: [
-          "High mountain environments create the conditions associated with Shilajit formation: elevation, rocky terrain, seasonal temperature shifts, and limited human disturbance in remote collection areas.",
+          "Understanding what Shilajit is requires understanding how it forms, because the process is unlike almost anything else in nature. Shilajit develops gradually as organic plant matter becomes trapped within layers of mountain rock. Over centuries, this trapped material breaks down under the influence of several environmental factors working together.",
           "Gilgit Naturals sources Shilajit connected to the mountains of Gilgit, with a focus on authenticity, careful handling, and transparent communication for wholesale partners.",
         ],
       },

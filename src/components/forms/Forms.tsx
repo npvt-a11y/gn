@@ -18,19 +18,42 @@ type FormProps = {
   submitLabel: string;
   successTitle?: string;
   successMessage?: string;
+  submissionUrl?: string;
 };
+
+const GOOGLE_APPS_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbxLpE4Z8ldIznmYRvpOO2a4TK8oZQuu6G3TodkN-CLkPe1E5T7JtHkZoAC9cqSjnE0T-g/exec";
 
 export function ContactForm({
   fields,
   submitLabel,
   successTitle = "Inquiry received",
   successMessage = "Thank you. Your message has been noted. We will respond using the contact details you provided. (Form submission is a demonstration success state — connect to your backend or form service to go live.)",
+  submissionUrl = GOOGLE_APPS_SCRIPT_URL,
 }: FormProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      await fetch(submissionUrl, {
+        method: "POST",
+        mode: "no-cors",
+        body: new URLSearchParams(
+          Array.from(formData.entries()).map(([key, value]) => [
+            key,
+            String(value),
+          ])
+        ),
+      });
+      setSubmitted(true);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -115,8 +138,8 @@ export function ContactForm({
         })}
       </div>
       <div className="pt-2">
-        <Button type="submit" variant="primary">
-          {submitLabel}
+        <Button type="submit" variant="primary" disabled={submitting}>
+          {submitting ? "Sending…" : submitLabel}
         </Button>
       </div>
     </form>

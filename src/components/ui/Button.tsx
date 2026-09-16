@@ -9,6 +9,7 @@ type ButtonProps = {
   className?: string;
   type?: "button" | "submit";
   onClick?: () => void;
+  disabled?: boolean;
 };
 
 export function Button({
@@ -18,6 +19,7 @@ export function Button({
   className,
   type = "button",
   onClick,
+  disabled = false,
 }: ButtonProps) {
   const styles = clsx(
     variant === "primary" && "btn-primary",
@@ -35,7 +37,12 @@ export function Button({
   }
 
   return (
-    <button type={type} className={styles} onClick={onClick}>
+    <button
+      type={type}
+      className={styles}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

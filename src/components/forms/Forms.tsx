@@ -22,7 +22,7 @@ type FormProps = {
 };
 
 const GOOGLE_APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbxLpE4Z8ldIznmYRvpOO2a4TK8oZQuu6G3TodkN-CLkPe1E5T7JtHkZoAC9cqSjnE0T-g/exec";
+  "https://script.google.com/macros/s/AKfycbyxE_WQcySuQBard8OCGy1IVZd32mVNCJqPCgIA6g_KRZB3KlkiR8m1yxnmtkJAGCVYiQ/exec";
 
 export function ContactForm({
   fields,

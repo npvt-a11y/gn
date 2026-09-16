@@ -44,6 +44,7 @@ export function ContactForm({
       const form = e.currentTarget;
       await fetch(submissionUrl, {
         method: "POST",
+        mode: "no-cors",
         body: new FormData(form),
       });
       setSubmitted(true);

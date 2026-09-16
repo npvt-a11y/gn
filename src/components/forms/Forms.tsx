@@ -33,24 +33,24 @@ export function ContactForm({
 }: FormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
+    setSubmissionError("");
 
     try {
-      const formData = new FormData(e.currentTarget);
+      const form = e.currentTarget;
       await fetch(submissionUrl, {
         method: "POST",
-        mode: "no-cors",
-        body: new URLSearchParams(
-          Array.from(formData.entries()).map(([key, value]) => [
-            key,
-            String(value),
-          ])
-        ),
+        body: new FormData(form),
       });
       setSubmitted(true);
+    } catch {
+      setSubmissionError(
+        "We could not send your inquiry. Please check your connection and try again."
+      );
     } finally {
       setSubmitting(false);
     }
@@ -137,6 +137,11 @@ export function ContactForm({
           );
         })}
       </div>
+      {submissionError && (
+        <p role="alert" className="text-sm text-red-700">
+          {submissionError}
+        </p>
+      )}
       <div className="pt-2">
         <Button type="submit" variant="primary" disabled={submitting}>
           {submitting ? "Sending…" : submitLabel}

@@ -31,7 +31,7 @@ export const FOOTER_NAV = [
   { href: "/about", label: "About" },
   { href: "/reviews", label: "Reviews" },
   { href: "/faq", label: "FAQ" },
-  { href: "/blogs", label: "Blogs" },
+  { href: "/knowledge", label: "Blogs" },
   { href: "/contact", label: "Contact" },
 ] as const;
 

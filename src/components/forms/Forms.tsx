@@ -212,7 +212,7 @@ export const contactFields: Field[] = [
 ];
 
 export const inquiryFields: Field[] = [
-  { name: "name", label: "Name", required: true },
+  { name: "fullName", label: "Name", required: true },
   { name: "businessName", label: "Business Name" },
   { name: "phone", label: "Phone / WhatsApp", type: "tel", required: true },
   { name: "email", label: "Email", type: "email", required: true },
@@ -240,7 +240,7 @@ export const inquiryFields: Field[] = [
     options: ["Jars", "Bulk", "Discuss"],
   },
   {
-    name: "message",
+    name: "additional",
     label: "Message",
     as: "textarea",
     placeholder: "Share any details about your wholesale inquiry…",

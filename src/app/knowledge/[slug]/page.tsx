@@ -3,24 +3,22 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { CtaBanner } from "@/components/ui/CtaBanner";
 import { Reveal } from "@/components/ui/Reveal";
-import {
-  articles,
-  getAllArticleSlugs,
-  getArticle,
-} from "@/lib/articles";
+import { getPublishedArticles } from "@/lib/sanity";
 import { createMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
-  return getAllArticleSlugs().map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  const articles = await getPublishedArticles();
+  return articles.map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const article = getArticle(slug);
+  const articles = await getPublishedArticles();
+  const article = articles.find((item) => item.slug === slug);
   if (!article) return {};
   return createMetadata({
     title: article.title,
@@ -31,7 +29,8 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
-  const article = getArticle(slug);
+  const articles = await getPublishedArticles();
+  const article = articles.find((item) => item.slug === slug);
   if (!article) notFound();
 
   const related = articles.filter((a) => a.slug !== slug).slice(0, 3);

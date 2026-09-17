@@ -65,5 +65,15 @@ export async function getSanityArticles(): Promise<Article[]> {
 
 export async function getPublishedArticles() {
   const remoteArticles = await getSanityArticles();
-  return remoteArticles.length ? remoteArticles : (await import("@/lib/articles")).articles;
+  const { articles: localArticles } = await import("@/lib/articles");
+  const remoteBySlug = new Map(
+    remoteArticles.map((article) => [article.slug, article])
+  );
+
+  return [
+    ...localArticles
+      .filter((article) => !remoteBySlug.has(article.slug))
+      .map((article) => article),
+    ...remoteArticles,
+  ];
 }

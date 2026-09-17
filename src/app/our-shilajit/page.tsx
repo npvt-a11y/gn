@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/Button";
 import { CtaBanner } from "@/components/ui/CtaBanner";
 import { Reveal } from "@/components/ui/Reveal";
 import { PageHero, SectionHeader } from "@/components/ui/SectionHeader";
-import { IMAGES } from "@/lib/constants";
+import { CONTACT, IMAGES } from "@/lib/constants";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -76,6 +76,11 @@ const packSizes = [
     description: "A larger retail format for customers who order regularly.",
   },
 ];
+
+function whatsappOrderLink(size: string) {
+  const message = `Hello Gilgit Naturals, I would like to order the ${size} Gilgit Shilajit Resin pack. Please share the current price, availability, delivery options, and payment details.`;
+  return `https://wa.me/${CONTACT.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
+}
 
 const productGuidance = [
   {
@@ -171,7 +176,7 @@ export default function OurShilajitPage() {
             <SectionHeader
               eyebrow="Retail Formats"
               title="Choose your pack size"
-              description="Pricing will be added soon. Contact us for current availability and a quotation."
+              description="Choose a pack size to start an order on WhatsApp. We will confirm current pricing, availability, delivery options, and payment details."
               className="mb-12"
             />
           </Reveal>
@@ -203,11 +208,10 @@ export default function OurShilajitPage() {
                       Price on request
                     </p>
                     <Button
-                      href="/request-quote"
-                      variant="secondary"
+                      href={whatsappOrderLink(pack.size)}
                       className="mt-5 w-full"
                     >
-                      Enquire for {pack.size}
+                      Order on WhatsApp
                     </Button>
                   </div>
                 </article>

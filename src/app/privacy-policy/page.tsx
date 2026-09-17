@@ -1,12 +1,279 @@
+import Link from "next/link";
 import { PageHero } from "@/components/ui/SectionHeader";
 import { CONTACT, SITE_NAME, SITE_URL } from "@/lib/constants";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "Privacy Policy",
-  description: `Privacy Policy for ${SITE_NAME}. How we handle inquiry information and website data.`,
+  description: `Privacy Policy for ${SITE_NAME}. Learn how we collect, use, disclose, and protect personal information.`,
   path: "/privacy-policy",
 });
+
+const sections = [
+  {
+    title: "1. Who We Are",
+    content: (
+      <p>
+        <strong>Gilgit Naturals PVT LTD</strong> is operated from Gilgit,
+        Pakistan. You can contact us using the details in Section 14 below.
+      </p>
+    ),
+  },
+  {
+    title: "2. Information We Collect",
+    content: (
+      <>
+        <p>We collect the following categories of information:</p>
+        <ul>
+          <li>
+            <strong>Contact information:</strong> name, email address, phone
+            number, and shipping or billing address.
+          </li>
+          <li>
+            <strong>Order information:</strong> products purchased, order
+            history, quantities, and wholesale or business details where
+            applicable.
+          </li>
+          <li>
+            <strong>Payment information:</strong> payment method details
+            processed securely through applicable third-party payment
+            providers. We do not store full card numbers.
+          </li>
+          <li>
+            <strong>Communications:</strong> messages, inquiries, reviews,
+            testimonials, and other content you submit to us.
+          </li>
+          <li>
+            <strong>Technical information:</strong> IP address, browser type,
+            device information, and website usage data collected through
+            cookies and similar technologies.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    title: "3. How We Use Your Information",
+    content: (
+      <>
+        <p>We use your information to:</p>
+        <ul>
+          <li>Process and fulfill orders, including shipping documentation.</li>
+          <li>Communicate about orders, inquiries, and customer support.</li>
+          <li>Resolve disputes, returns, complaints, and service requests.</li>
+          <li>Process wholesale and bulk-order quotations.</li>
+          <li>Improve our website, products, and services.</li>
+          <li>
+            Send marketing communications where you have consented or where
+            otherwise permitted by law. You may opt out at any time.
+          </li>
+          <li>Detect, prevent, and address fraud, security issues, or unlawful activity.</li>
+          <li>Comply with legal, tax, and regulatory obligations.</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    title: "4. Legal Basis for Processing",
+    content: (
+      <>
+        <p>
+          Where applicable data-protection law requires a legal basis, we rely
+          on:
+        </p>
+        <ul>
+          <li>
+            <strong>Performance of a contract</strong> to process orders and
+            provide products or services.
+          </li>
+          <li>
+            <strong>Legitimate interests</strong> to operate, secure, and
+            improve our website and business.
+          </li>
+          <li>
+            <strong>Consent</strong> for marketing communications and
+            non-essential cookies, which you may withdraw.
+          </li>
+          <li>
+            <strong>Legal obligation</strong> to comply with tax, customs, and
+            regulatory requirements.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    title: "5. Sharing Your Information",
+    content: (
+      <>
+        <p>We do not sell your personal information. We may share it with:</p>
+        <ul>
+          <li>Courier and logistics providers for delivery.</li>
+          <li>Payment processors for secure payment handling.</li>
+          <li>Customs and regulatory authorities where required.</li>
+          <li>
+            Website, hosting, email, communication, and technology providers
+            supporting our operations.
+          </li>
+          <li>Professional advisers, including legal and accounting advisers.</li>
+          <li>Authorities where required by law or to protect legal rights.</li>
+        </ul>
+        <p>
+          We seek to share only information reasonably necessary for the
+          relevant purpose. Information submitted through website forms may be
+          processed by Google Apps Script and stored in a restricted-access
+          Google Sheet for inquiry management. The website is hosted through
+          Vercel. These providers process information under their own terms and
+          privacy policies.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "6. International Data Transfers",
+    content: (
+      <p>
+        As we may ship internationally and use service providers located
+        outside Pakistan, your information may be transferred to and processed
+        in other countries with different data-protection laws. Where required
+        by applicable law, we use appropriate safeguards for international
+        transfers, such as Standard Contractual Clauses or an applicable
+        adequacy decision.
+      </p>
+    ),
+  },
+  {
+    title: "7. Data Retention",
+    content: (
+      <p>
+        We retain personal information only for as long as necessary to fulfill
+        the purposes described in this Policy, including processing orders,
+        maintaining legal, tax, and accounting records, resolving disputes, and
+        enforcing agreements. Retention periods vary by information type and
+        applicable legal requirements.
+      </p>
+    ),
+  },
+  {
+    title: "8. Data Security",
+    content: (
+      <p>
+        We take reasonable technical and organizational measures to protect
+        personal information against unauthorized access, loss, misuse, or
+        alteration. However, no method of transmission or electronic storage is
+        completely secure, and absolute security cannot be guaranteed.
+      </p>
+    ),
+  },
+  {
+    title: "9. Cookies and Tracking Technologies",
+    content: (
+      <p>
+        Our website may use cookies and similar technologies to operate the
+        site, remember preferences, maintain security, and analyze website
+        traffic. You can control cookies through your browser settings;
+        disabling some cookies may affect website functionality.
+      </p>
+    ),
+  },
+  {
+    title: "10. Your Rights",
+    content: (
+      <>
+        <p>Depending on your location, you may have the right to:</p>
+        <ul>
+          <li>Request access to personal information we hold about you.</li>
+          <li>Request correction of inaccurate or incomplete information.</li>
+          <li>Request deletion, subject to legal exceptions.</li>
+          <li>Object to or restrict certain processing.</li>
+          <li>Request a portable copy of your information where applicable.</li>
+          <li>Withdraw consent where processing is based on consent.</li>
+          <li>
+            Lodge a complaint with your local data-protection authority where
+            you believe your rights have been violated.
+          </li>
+        </ul>
+        <p>
+          To exercise these rights, contact us using the details in Section 14.
+          We may verify your identity before responding and will respond within
+          the timeframe required by applicable law.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "11. Children’s Privacy",
+    content: (
+      <p>
+        Our website and products are not directed at children, and we do not
+        knowingly collect personal information from anyone under 18 where
+        prohibited by applicable law. If you believe a child has provided
+        personal information to us, please contact us so we can take
+        appropriate action.
+      </p>
+    ),
+  },
+  {
+    title: "12. Third-Party Links",
+    content: (
+      <p>
+        Our website may contain links to third-party websites, payment
+        providers, or services. Gilgit Naturals is not responsible for the
+        privacy practices, security, or content of those third parties. We
+        encourage you to review their privacy policies separately.
+      </p>
+    ),
+  },
+  {
+    title: "13. Changes to This Privacy Policy",
+    content: (
+      <p>
+        We may update this Privacy Policy from time to time. Changes become
+        effective when published on this page, and the “Last Updated” date will
+        be revised accordingly. For material changes, we may provide reasonable
+        notice, such as by email or a notice on our website.
+      </p>
+    ),
+  },
+  {
+    title: "14. Contact Us",
+    content: (
+      <>
+        <p>
+          If you have questions, concerns, or requests regarding this Privacy
+          Policy or your personal information, please contact us:
+        </p>
+        <address className="mt-4 not-italic">
+          <strong>{SITE_NAME}</strong>
+          <br />
+          Gilgit, Pakistan
+          <br />
+          Email:{" "}
+          <a className="text-forest underline underline-offset-2" href={`mailto:${CONTACT.email}`}>
+            {CONTACT.email}
+          </a>
+          <br />
+          Phone:{" "}
+          <a className="text-forest underline underline-offset-2" href={`tel:${CONTACT.phone}`}>
+            {CONTACT.phone}
+          </a>
+          <br />
+          Website:{" "}
+          <a className="text-forest underline underline-offset-2" href={SITE_URL}>
+            {SITE_URL}
+          </a>
+        </address>
+        <p className="mt-4">
+          You can also use the{" "}
+          <Link className="text-forest underline underline-offset-2" href="/contact">
+            Contact page
+          </Link>
+          .
+        </p>
+      </>
+    ),
+  },
+];
 
 export default function PrivacyPage() {
   return (
@@ -14,217 +281,33 @@ export default function PrivacyPage() {
       <PageHero
         eyebrow="Legal"
         title="Privacy Policy"
-        description="How Gilgit Naturals collects, uses and protects information shared through this website."
+        description="How Gilgit Naturals collects, uses, discloses, and protects personal information."
       />
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-8 lg:pb-28">
-        <div className="space-y-10 text-sm leading-relaxed text-charcoal-muted">
+        <article className="space-y-10 text-sm leading-relaxed text-charcoal-muted">
           <p className="border-b border-border pb-6 text-xs tracking-[0.08em] text-charcoal-muted uppercase">
-            Effective date: September 17, 2026
+            Last updated: September 17, 2026
           </p>
-
-          <div>
-            <h2 className="font-serif text-2xl text-forest">
-              1. Information We Collect
-            </h2>
-            <p className="mt-4">
-              At <strong>{SITE_NAME}</strong>, we respect your privacy and are
-              committed to protecting the personal information you provide when
-              you visit our website, contact us, request a wholesale quotation,
-              or place an order.
-            </p>
-            <h3 className="mt-6 font-medium text-forest">
-              Information you provide
-            </h3>
-            <p className="mt-3">
-              Depending on how you use the website, this may include your full
-              name, phone number, email address, delivery or billing address,
-              business name, business information, product and quantity
-              requirements, packaging preferences, and any other information
-              you voluntarily provide.
-            </p>
-            <h3 className="mt-6 font-medium text-forest">
-              Information collected automatically
-            </h3>
-            <p className="mt-3">
-              Website hosting and security services may process technical
-              information such as your IP address, browser and device type,
-              operating system, pages visited, referring website, and the date
-              and time of visits. This information helps maintain security,
-              improve performance, and understand website usage.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="font-serif text-2xl text-forest">
-              2. How We Use Your Information
-            </h2>
-            <p className="mt-4">We may use information we collect to:</p>
-            <ul className="mt-3 list-disc space-y-2 pl-5">
-              <li>Respond to inquiries and messages.</li>
-              <li>Provide wholesale quotations and product information.</li>
-              <li>Process and manage orders, delivery, and customer support.</li>
-              <li>Discuss quantities, packaging, and private-label requirements.</li>
-              <li>Improve our website, products, and services.</li>
-              <li>Maintain website security and prevent misuse or fraud.</li>
-              <li>Comply with applicable legal and regulatory requirements.</li>
-            </ul>
-            <p className="mt-4">
-              We do not use your personal information for unrelated purposes
-              unless permitted or required by applicable law.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="font-serif text-2xl text-forest">
-              3. Wholesale Inquiries
-            </h2>
-            <p className="mt-4">
-              If you submit a wholesale or bulk-order inquiry, we may use the
-              information you provide to contact you about product availability,
-              quantities and pricing, packaging, private-label requirements,
-              shipping, delivery, and other information needed to respond to
-              your business inquiry.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="font-serif text-2xl text-forest">
-              4. Forms and Third-Party Services
-            </h2>
-            <p className="mt-4">
-              Website inquiry forms send the information you submit to our
-              Google Apps Script form-processing service, which records inquiry
-              details in a restricted-access Google Sheet used by Gilgit
-              Naturals to respond to customers. Google may process information
-              under its own privacy policies and terms.
-            </p>
-            <p className="mt-4">
-              The website is hosted through Vercel. We may also use third-party
-              services for hosting, website security, analytics, communication,
-              payment processing, and shipping or delivery. These providers
-              process information according to their own policies and applicable
-              law.
-            </p>
-            <p className="mt-4">
-              We do not sell or rent your personal information to third
-              parties.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="font-serif text-2xl text-forest">
-              5. Cookies and Similar Technologies
-            </h2>
-            <p className="mt-4">
-              Our website may use cookies and similar technologies for essential
-              functionality, website security, remembering preferences, and
-              understanding website usage. You can control or disable cookies
-              through your browser settings, although some functionality may be
-              affected.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="font-serif text-2xl text-forest">
-              6. Payment Information
-            </h2>
-            <p className="mt-4">
-              If payments are processed through a third-party provider, that
-              provider may handle your payment information directly. Gilgit
-              Naturals does not intentionally store complete payment card
-              details on this website unless specifically stated at the time of
-              payment. Review the relevant provider&apos;s privacy and security
-              policies before submitting payment information.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="font-serif text-2xl text-forest">
-              7. Sharing and Security
-            </h2>
-            <p className="mt-4">
-              We may share information when reasonably necessary to operate our
-              business, including with delivery and courier companies, payment
-              providers, website and technology providers, professional
-              advisers, or government and law-enforcement authorities where
-              required by law. We seek to share only information reasonably
-              necessary for the relevant purpose.
-            </p>
-            <p className="mt-4">
-              We take reasonable administrative, technical, and organizational
-              measures to protect personal information against unauthorized
-              access, misuse, loss, alteration, or disclosure. No internet
-              transmission or electronic storage method can be guaranteed to be
-              completely secure.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="font-serif text-2xl text-forest">
-              8. Retention and Your Choices
-            </h2>
-            <p className="mt-4">
-              We retain personal information only for as long as reasonably
-              necessary to respond to inquiries, fulfill orders, maintain
-              business records, resolve disputes, provide support, and comply
-              with legal obligations.
-            </p>
-            <p className="mt-4">
-              Depending on applicable law, you may request access to, correction
-              of, or deletion of personal information we hold about you. You may
-              also object to or restrict certain processing or withdraw consent
-              where processing is based on consent. We may need to verify your
-              identity before completing a request.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="font-serif text-2xl text-forest">
-              9. Children and External Links
-            </h2>
-            <p className="mt-4">
-              This website is not intentionally directed toward children. We do
-              not knowingly collect children&apos;s personal information where
-              prohibited by applicable law.
-            </p>
-            <p className="mt-4">
-              Our website may link to third-party websites or services.
-              {` ${SITE_NAME}`} is not responsible for their privacy practices,
-              security, or content. Review their privacy policies before using
-              those services.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="font-serif text-2xl text-forest">
-              10. Changes to This Policy
-            </h2>
-            <p className="mt-4">
-              We may update this Privacy Policy to reflect changes in our
-              business, website, services, or applicable legal requirements. The
-              effective date at the top of this page will be updated when
-              changes are made.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="font-serif text-2xl text-forest">
-              11. Contact Us
-            </h2>
-            <p className="mt-4">
-              For privacy questions or requests, contact {SITE_NAME} through
-              our <a className="text-forest underline" href="/contact">Contact page</a>{" "}
-              or:
-            </p>
-            <ul className="mt-3 space-y-1">
-              <li>{SITE_NAME}</li>
-              <li>{CONTACT.location}</li>
-              <li>{CONTACT.email}</li>
-              <li>{CONTACT.phone}</li>
-              <li>{SITE_URL}</li>
-            </ul>
-          </div>
-        </div>
+          <p>
+            This Privacy Policy explains how <strong>{SITE_NAME}</strong>{" "}
+            (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) collects,
+            uses, discloses, and protects your personal information when you
+            visit our website, place an order, submit an inquiry, or otherwise
+            interact with us. By using our website or providing information,
+            you agree to the practices described in this Privacy Policy,
+            together with our Terms &amp; Conditions.
+          </p>
+          {sections.map((section) => (
+            <section key={section.title}>
+              <h2 className="font-serif text-2xl text-forest">
+                {section.title}
+              </h2>
+              <div className="policy-content mt-4 space-y-4">
+                {section.content}
+              </div>
+            </section>
+          ))}
+        </article>
       </section>
     </>
   );

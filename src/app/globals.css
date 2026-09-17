@@ -190,6 +190,25 @@ h4,
   transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.img-zoom:hover {
+  transform: scale(1.04);
+}
+
+@keyframes quality-document-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.012);
+  }
+}
+
+.quality-report-document {
+  transform-origin: center top;
+  animation: quality-document-breathe 12s ease-in-out infinite;
+}
+
 .group:hover .img-zoom {
   transform: scale(1.04);
 }
@@ -335,6 +354,10 @@ h4,
   }
 
   .hero-image-drift {
+    animation: none;
+  }
+
+  .quality-report-document {
     animation: none;
   }
 }

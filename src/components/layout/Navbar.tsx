@@ -15,8 +15,9 @@ export function Navbar() {
   const [dropdown, setDropdown] = useState<string | null>(null);
 
   const isHome = pathname === "/";
+  const isProductPage = pathname === "/our-shilajit";
   // White nav only on home hero (top). Once scrolled — or on other pages — use dark style.
-  const lightNav = isHome && !scrolled && !open;
+  const lightNav = (isHome || isProductPage) && !scrolled && !open;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);

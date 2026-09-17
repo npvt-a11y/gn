@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/Button";
-import { CtaBanner } from "@/components/ui/CtaBanner";
 import { Reveal } from "@/components/ui/Reveal";
 import { PageHero, SectionHeader } from "@/components/ui/SectionHeader";
 import { createMetadata } from "@/lib/seo";
@@ -93,6 +92,7 @@ export default function OurShilajitPage() {
         eyebrow="Our Product"
         title="Gilgit Shilajit Resin"
         description="Carefully handled Shilajit resin from the mountain region of Gilgit, presented in retail-ready pack sizes for customers and wholesale buyers."
+        light
       >
         <div className="flex flex-wrap gap-4">
           <Button href="/request-quote">Request a Quote</Button>
@@ -161,10 +161,25 @@ export default function OurShilajitPage() {
         </section>
       </div>
 
-      <CtaBanner
-        title="Interested in wholesale supply?"
-        description="Request pricing and packaging options tailored to your business."
-      />
+      <section className="bg-forest-light text-cream">
+        <div className="mx-auto max-w-6xl px-6 py-20 text-center lg:px-8 lg:py-24">
+          <p className="eyebrow mb-4 text-gold-light">Your next step</p>
+          <h2 className="mx-auto max-w-2xl font-serif text-3xl md:text-4xl">
+            Ready to order your Shilajit?
+          </h2>
+          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-cream/75">
+            Review your selected pack sizes and continue on WhatsApp for current pricing, delivery and payment details.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <Button href="/cart" className="!bg-gold !text-forest hover:!bg-gold-light">
+              Order Now
+            </Button>
+            <Button href="/contact" variant="secondary" className="!border-cream !text-cream hover:!bg-cream hover:!text-forest">
+              Contact Us
+            </Button>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

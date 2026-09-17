@@ -81,7 +81,7 @@ export default function OurShilajitPage() {
               priority
             />
           </Reveal>
-          <Reveal scale className="relative aspect-[4/5] overflow-hidden lg:mt-16">
+          <Reveal scale className="relative aspect-[4/5] overflow-hidden">
             <Image
               src={IMAGES.texture}
               alt="Natural earthy texture suggesting mountain-origin mineral resin"

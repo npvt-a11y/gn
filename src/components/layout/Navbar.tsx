@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { clsx } from "clsx";
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_GROUPS, NAV_LINKS } from "@/lib/constants";
 import { IconClose, IconMenu } from "@/components/ui/Icons";
 import { CartButton } from "@/components/cart/CartButton";
 
@@ -12,6 +12,7 @@ export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [dropdown, setDropdown] = useState<string | null>(null);
 
   const isHome = pathname === "/";
   // White nav only on home hero (top). Once scrolled — or on other pages — use dark style.
@@ -26,6 +27,7 @@ export function Navbar() {
 
   useEffect(() => {
     setOpen(false);
+    setDropdown(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -57,23 +59,64 @@ export function Navbar() {
 
         <nav className="hidden items-center gap-7 xl:flex">
           {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={clsx(
-                "nav-link text-[0.75rem] tracking-[0.1em] uppercase transition-colors duration-500",
-                lightNav && "nav-link-light",
-                lightNav
-                  ? pathname === link.href
-                    ? "active text-white"
-                    : "text-white/80 hover:text-white"
-                  : pathname === link.href
-                    ? "active text-forest"
-                    : "text-charcoal-muted hover:text-forest"
+            <div key={link.href} className="relative">
+              {NAV_GROUPS[link.label as keyof typeof NAV_GROUPS] ? (
+                <>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setDropdown((current) =>
+                        current === link.label ? null : link.label
+                      )
+                    }
+                    aria-expanded={dropdown === link.label}
+                    className={clsx(
+                      "nav-link flex items-center gap-1 text-[0.75rem] tracking-[0.1em] uppercase transition-colors duration-500",
+                      lightNav
+                        ? "text-white/80 hover:text-white"
+                        : "text-charcoal-muted hover:text-forest"
+                    )}
+                  >
+                    {link.label}
+                    <span className="text-[10px]">
+                      {dropdown === link.label ? "−" : "+"}
+                    </span>
+                  </button>
+                  {dropdown === link.label && (
+                    <div className="absolute left-1/2 top-full mt-4 w-56 -translate-x-1/2 border border-border bg-cream p-2 shadow-[0_16px_35px_rgba(26,58,42,0.12)]">
+                      {NAV_GROUPS[
+                        link.label as keyof typeof NAV_GROUPS
+                      ].map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-4 py-3 text-xs tracking-[0.08em] text-charcoal-muted uppercase transition-colors hover:bg-cream-dark hover:text-forest"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <Link
+                  href={link.href}
+                  className={clsx(
+                    "nav-link text-[0.75rem] tracking-[0.1em] uppercase transition-colors duration-500",
+                    lightNav && "nav-link-light",
+                    lightNav
+                      ? pathname === link.href
+                        ? "active text-white"
+                        : "text-white/80 hover:text-white"
+                      : pathname === link.href
+                        ? "active text-forest"
+                        : "text-charcoal-muted hover:text-forest"
+                  )}
+                >
+                  {link.label}
+                </Link>
               )}
-            >
-              {link.label}
-            </Link>
+            </div>
           ))}
         </nav>
 

@@ -22,6 +22,24 @@ export const NAV_LINKS = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
+export const NAV_GROUPS = {
+  Shilajit: [
+    { href: "/our-shilajit", label: "Our Shilajit" },
+    { href: "/what-is-shilajit", label: "What Is Shilajit?" },
+    { href: "/benefits", label: "Traditional Benefits" },
+  ],
+  Wholesale: [
+    { href: "/wholesale", label: "Wholesale Supply" },
+    { href: "/request-quote", label: "Request a Quote" },
+    { href: "/shipping-policy#wholesale", label: "Wholesale Policy" },
+  ],
+  Quality: [
+    { href: "/quality", label: "Quality Approach" },
+    { href: "/processing", label: "Our Processing" },
+    { href: "/sourcing", label: "Sourcing" },
+  ],
+} as const;
+
 export const FOOTER_NAV = [
   { href: "/", label: "Home" },
   { href: "/our-shilajit", label: "Shilajit" },

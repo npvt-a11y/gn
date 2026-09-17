@@ -42,7 +42,7 @@ export function Navbar() {
       className={clsx(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         scrolled || open
-          ? "border-b border-border/80 bg-cream/95 py-3 shadow-[0_1px_0_rgba(26,58,42,0.04)] backdrop-blur-md"
+          ? "border-b border-border/80 bg-cream/98 py-3 backdrop-blur-md"
           : "bg-transparent py-5 md:py-6"
       )}
     >
@@ -150,13 +150,14 @@ export function Navbar() {
           <button
             type="button"
             className={clsx(
-              "flex h-10 w-10 items-center justify-center transition-colors duration-500 xl:hidden",
+              "flex h-10 w-10 items-center justify-center border transition-all duration-300 xl:hidden",
               lightNav
-                ? "bg-forest/85 text-white hover:bg-forest"
-                : "bg-forest text-cream hover:bg-forest-light"
+                ? "border-forest bg-forest/90 text-white hover:bg-forest"
+                : "border-forest bg-forest text-cream hover:bg-forest-light"
             )}
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
           >
             {open ? (
               <IconClose className="h-5 w-5" />
@@ -169,12 +170,14 @@ export function Navbar() {
 
       <div
         className={clsx(
-          "fixed inset-x-0 top-[4.25rem] z-[60] h-[calc(100dvh-4.25rem)] overflow-y-auto bg-[#f7f5f0] shadow-[0_8px_20px_rgba(26,58,42,0.12)] xl:hidden",
-          open ? "block" : "hidden"
+          "fixed inset-x-0 top-[4.25rem] z-[60] h-[calc(100dvh-4.25rem)] overflow-y-auto border-t border-border bg-[#f7f5f0] transition-all duration-300 ease-out xl:hidden",
+          open
+            ? "translate-y-0 opacity-100"
+            : "pointer-events-none -translate-y-2 opacity-0"
         )}
         style={{ backgroundColor: "#f7f5f0" }}
       >
-        <nav className="flex h-full flex-col px-6 py-10">
+        <nav className="flex h-full flex-col px-6 py-8">
           <div className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
               <Link

@@ -3,6 +3,7 @@ import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { MobileStickyCta } from "@/components/layout/MobileStickyCta";
+import { CartProvider } from "@/components/cart/CartProvider";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
@@ -45,10 +46,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${dmSans.variable}`}>
       <body className="min-h-screen flex flex-col bg-cream text-charcoal antialiased">
-        <Navbar />
-        <main className="flex-1 pb-16 md:pb-0">{children}</main>
-        <Footer />
-        <MobileStickyCta />
+        <CartProvider>
+          <Navbar />
+          <main className="flex-1 pb-16 md:pb-0">{children}</main>
+          <Footer />
+          <MobileStickyCta />
+        </CartProvider>
       </body>
     </html>
   );

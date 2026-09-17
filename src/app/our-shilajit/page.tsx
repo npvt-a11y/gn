@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/Button";
 import { CtaBanner } from "@/components/ui/CtaBanner";
 import { Reveal } from "@/components/ui/Reveal";
 import { PageHero, SectionHeader } from "@/components/ui/SectionHeader";
-import { CONTACT, IMAGES } from "@/lib/constants";
+import { IMAGES } from "@/lib/constants";
 import { createMetadata } from "@/lib/seo";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
 
 export const metadata = createMetadata({
   title: "Gilgit Shilajit Resin",
@@ -76,11 +77,6 @@ const packSizes = [
     description: "A larger retail format for customers who order regularly.",
   },
 ];
-
-function whatsappOrderLink(size: string) {
-  const message = `Hello Gilgit Naturals, I would like to order the ${size} Gilgit Shilajit Resin pack. Please share the current price, availability, delivery options, and payment details.`;
-  return `https://wa.me/${CONTACT.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
-}
 
 const productGuidance = [
   {
@@ -207,12 +203,7 @@ export default function OurShilajitPage() {
                     <p className="text-sm font-medium text-forest">
                       Price on request
                     </p>
-                    <Button
-                      href={whatsappOrderLink(pack.size)}
-                      className="mt-5 w-full"
-                    >
-                      Order on WhatsApp
-                    </Button>
+                    <AddToCartButton size={pack.size} />
                   </div>
                 </article>
               </Reveal>

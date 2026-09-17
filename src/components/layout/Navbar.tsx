@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { clsx } from "clsx";
 import { NAV_LINKS } from "@/lib/constants";
 import { IconClose, IconMenu } from "@/components/ui/Icons";
+import { CartButton } from "@/components/cart/CartButton";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -77,6 +78,7 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <CartButton light={lightNav} />
           <Link
             href="/request-quote"
             className={clsx(

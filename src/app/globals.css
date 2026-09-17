@@ -77,6 +77,20 @@ h4,
     opacity: 0;
     transform: scale(1.04);
   }
+
+  @keyframes hero-image-drift {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.08);
+    }
+  }
+
+  .hero-image-drift {
+    animation: hero-image-drift 20s ease-in-out infinite alternate;
+    will-change: transform;
+  }
   to {
     opacity: 1;
     transform: scale(1);
@@ -318,5 +332,9 @@ h4,
   .reveal-scale {
     opacity: 1;
     transform: none;
+  }
+
+  .hero-image-drift {
+    animation: none;
   }
 }

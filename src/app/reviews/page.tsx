@@ -3,30 +3,8 @@ import { CtaBanner } from "@/components/ui/CtaBanner";
 import { Reveal } from "@/components/ui/Reveal";
 import { PageHero, SectionHeader } from "@/components/ui/SectionHeader";
 import { TestimonialCard } from "@/components/ui/TestimonialCard";
+import { reviews, type Review } from "@/lib/content";
 import { createMetadata } from "@/lib/seo";
-
-type Review = {
-  id: number;
-  name: string;
-  city: string;
-  rating: number;
-  text: string;
-  type?: string;
-};
-
-const retailReviews: Review[] = [
-  { id: 1, name: "Ahmed R.", city: "Islamabad", rating: 5, text: "Ordered the Shilajit resin for the first time. The packaging was neat and the order arrived properly sealed. Communication throughout the order was also good." },
-  { id: 2, name: "Hamza K.", city: "Rawalpindi", rating: 5, text: "Good experience overall. I liked that the product information and usage instructions were clearly provided. Delivery was also smooth." },
-  { id: 3, name: "Bilal M.", city: "Lahore", rating: 5, text: "I was looking specifically for Shilajit sourced from Gilgit. The ordering process was straightforward and the packaging looked professional." },
-  { id: 4, name: "Usman A.", city: "Peshawar", rating: 4, text: "Received my order safely. The team responded quickly when I asked about the product and delivery." },
-  { id: 5, name: "Saad H.", city: "Karachi", rating: 5, text: "Ordered from Karachi and the package arrived in good condition. I appreciated the simple and professional packaging." },
-];
-
-const wholesaleReviews: Review[] = [
-  { id: 6, name: "Muhammad Z.", city: "Lahore", type: "Supplement Retailer", rating: 5, text: "We contacted Gilgit Naturals regarding a bulk requirement. The team explained the available quantities and packaging options clearly. Communication was professional." },
-  { id: 7, name: "Fahad R.", city: "Islamabad", type: "Health & Wellness Store", rating: 5, text: "Our first wholesale inquiry was handled quickly. We received the information we needed regarding quantity, packaging and delivery before proceeding." },
-  { id: 8, name: "Ali S.", city: "Rawalpindi", type: "Online Retailer", rating: 5, text: "We were looking for a supplier for regular Shilajit orders. The quotation process was straightforward and the team was responsive." },
-];
 
 function ReviewGrid({ reviews }: { reviews: Review[] }) {
   return (
@@ -48,6 +26,11 @@ export const metadata = createMetadata({
 });
 
 export default function ReviewsPage() {
+  const retailReviews = reviews.filter((review) => review.category === "retail");
+  const wholesaleReviews = reviews.filter(
+    (review) => review.category === "wholesale"
+  );
+
   return (
     <>
       <PageHero

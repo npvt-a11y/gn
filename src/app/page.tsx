@@ -50,7 +50,7 @@ export default function HomePage() {
             alt="Snow-covered Himalayan mountain peaks representing Gilgit origin Shilajit sourcing"
             fill
             priority
-            className="object-cover animate-scale-in"
+            className="object-cover hero-image-drift"
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-forest/90 via-forest/70 to-forest/35" />

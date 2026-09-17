@@ -6,9 +6,9 @@ export const CONTACT = {
   phone: "+923145666328",
   whatsapp: "+923145666328",
   email: "gilgitnaturals@gmail.com",
-  instagram: "[@gilgitnaturals]",
-  facebook: "[@gilgitnaturals]",
-  location: "Pakistan",
+  instagram: "@gilgitnaturals",
+  facebook: "@gilgitnaturals",
+  location: "Gilgit,Pakistan",
 };
 
 export const NAV_LINKS = [

@@ -82,7 +82,7 @@ export function Navbar() {
           <Link
             href="/request-quote"
             className={clsx(
-              "hidden px-4 py-2.5 text-[0.6875rem] font-medium tracking-[0.08em] uppercase transition-all duration-500 sm:inline-flex lg:px-5",
+              "hidden px-4 py-2.5 text-[0.6875rem] font-medium tracking-[0.08em] uppercase transition-all duration-500 xl:inline-flex xl:px-5",
               lightNav
                 ? "border border-white/70 bg-transparent text-white hover:bg-white hover:text-forest"
                 : "bg-forest text-cream hover:bg-forest-light"
@@ -112,7 +112,7 @@ export function Navbar() {
 
       <div
         className={clsx(
-          "fixed inset-x-0 top-16 z-[60] h-[calc(100dvh-4rem)] overflow-y-auto bg-[#f7f5f0] shadow-[0_8px_20px_rgba(26,58,42,0.12)] xl:hidden",
+          "fixed inset-x-0 top-[4.25rem] z-[60] h-[calc(100dvh-4.25rem)] overflow-y-auto bg-[#f7f5f0] shadow-[0_8px_20px_rgba(26,58,42,0.12)] xl:hidden",
           open ? "block" : "hidden"
         )}
         style={{ backgroundColor: "#f7f5f0" }}
@@ -135,6 +135,20 @@ export function Navbar() {
           >
             Request Wholesale Quote
           </Link>
+          <div className="mt-4 grid grid-cols-2 gap-3">
+            <Link
+              href="/cart"
+              className="border border-forest py-3 text-center text-sm font-medium tracking-[0.08em] text-forest uppercase"
+            >
+              View Cart
+            </Link>
+            <Link
+              href="/contact"
+              className="border border-border bg-white py-3 text-center text-sm font-medium tracking-[0.08em] text-forest uppercase"
+            >
+              Contact Us
+            </Link>
+          </div>
         </nav>
       </div>
     </header>

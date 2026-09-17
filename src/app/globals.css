@@ -284,12 +284,14 @@ h4,
   color: #9a9a9a;
 }
 
-.policy-content ul {
+.policy-content ul,
+.legal-content ul {
   list-style: disc;
   padding-left: 1.25rem;
 }
 
-.policy-content li + li {
+.policy-content li + li,
+.legal-content li + li {
   margin-top: 0.5rem;
 }
 

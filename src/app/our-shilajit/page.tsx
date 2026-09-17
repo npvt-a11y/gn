@@ -4,6 +4,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { PageHero, SectionHeader } from "@/components/ui/SectionHeader";
 import { createMetadata } from "@/lib/seo";
 import { ProductShowcase } from "@/components/product/ProductShowcase";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
 
 export const metadata = createMetadata({
   title: "Gilgit Shilajit Resin",
@@ -103,6 +104,38 @@ export default function OurShilajitPage() {
       </PageHero>
 
       <ProductShowcase />
+
+      <section className="bg-cream-dark/40">
+        <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
+          <Reveal>
+            <SectionHeader
+              eyebrow="Retail Formats"
+              title="Choose your pack"
+              description="Add a pack to your cart, then review your selection and confirm pricing, delivery and payment details on WhatsApp."
+              className="mb-12"
+            />
+          </Reveal>
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              { size: "10g", label: "Trial size", description: "A considered introduction to Gilgit Naturals Shilajit resin." },
+              { size: "20g", label: "Everyday size", description: "A balanced format for regular personal use or gifting." },
+              { size: "50g", label: "Value size", description: "A larger retail format for customers who order regularly." },
+            ].map((pack, index) => (
+              <Reveal key={pack.size} delay={((index + 1) as 1 | 2 | 3)}>
+                <article className="flex h-full flex-col border border-border bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_12px_30px_rgba(26,58,42,0.06)]">
+                  <p className="text-[11px] tracking-[0.14em] text-gold uppercase">{pack.label}</p>
+                  <h3 className="mt-3 font-serif text-4xl text-forest">{pack.size}</h3>
+                  <p className="mt-5 flex-1 text-sm leading-relaxed text-charcoal-muted">{pack.description}</p>
+                  <div className="mt-7 border-t border-border pt-5">
+                    <p className="text-sm font-medium text-forest">Price on request</p>
+                    <AddToCartButton size={pack.size} />
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">

@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { Button } from "../ui/Button";
+import { IconCheck } from "../ui/Icons";
 
 type Field = {
   name: string;
@@ -28,7 +29,7 @@ export function ContactForm({
   fields,
   submitLabel,
   successTitle = "Inquiry received",
-  successMessage = "Thank you. Your message has been noted. We will respond using the contact details you provided. (Form submission is a demonstration success state — connect to your backend or form service to go live.)",
+  successMessage = "Thank you for reaching out. Your message has been sent successfully, and our team will follow up using the contact details you provided.",
   submissionUrl = GOOGLE_APPS_SCRIPT_URL,
 }: FormProps) {
   const [submitted, setSubmitted] = useState(false);
@@ -76,18 +77,31 @@ export function ContactForm({
 
   if (submitted) {
     return (
-      <div className="border border-gold/30 bg-white p-10 text-center md:p-14">
-        <p className="eyebrow mb-4">Thank you</p>
-        <h3 className="font-serif text-3xl text-forest">{successTitle}</h3>
+      <div className="border border-gold/30 bg-white p-8 text-center md:p-14">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-forest text-cream">
+          <IconCheck className="h-7 w-7" />
+        </div>
+        <p className="eyebrow mt-6 mb-4">Message sent</p>
+        <h3 className="font-serif text-3xl text-forest md:text-4xl">
+          {successTitle}
+        </h3>
         <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-charcoal-muted">
           {successMessage}
         </p>
+        <div className="mx-auto mt-8 max-w-sm border border-border bg-cream px-5 py-4 text-left">
+          <p className="text-[11px] tracking-[0.12em] text-gold uppercase">
+            What happens next
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-charcoal-muted">
+            We will review your message and contact you as soon as possible.
+          </p>
+        </div>
         <button
           type="button"
           onClick={() => setSubmitted(false)}
-          className="mt-8 text-xs tracking-[0.12em] text-forest uppercase underline underline-offset-4"
+          className="mt-8 text-xs font-medium tracking-[0.12em] text-forest uppercase underline underline-offset-4 transition-colors hover:text-gold"
         >
-          Send another inquiry
+          Send another message
         </button>
       </div>
     );

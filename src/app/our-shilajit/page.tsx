@@ -1,11 +1,9 @@
-import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { CtaBanner } from "@/components/ui/CtaBanner";
 import { Reveal } from "@/components/ui/Reveal";
 import { PageHero, SectionHeader } from "@/components/ui/SectionHeader";
-import { IMAGES } from "@/lib/constants";
 import { createMetadata } from "@/lib/seo";
-import { AddToCartButton } from "@/components/cart/AddToCartButton";
+import { ProductShowcase } from "@/components/product/ProductShowcase";
 
 export const metadata = createMetadata({
   title: "Gilgit Shilajit Resin",
@@ -60,24 +58,6 @@ const sections = [
   },
 ];
 
-const packSizes = [
-  {
-    size: "10g",
-    label: "Trial size",
-    description: "A practical introduction to Gilgit Naturals Shilajit resin.",
-  },
-  {
-    size: "20g",
-    label: "Everyday size",
-    description: "A balanced format for regular personal use or gifting.",
-  },
-  {
-    size: "50g",
-    label: "Value size",
-    description: "A larger retail format for customers who order regularly.",
-  },
-];
-
 const productGuidance = [
   {
     title: "What is included?",
@@ -122,95 +102,7 @@ export default function OurShilajitPage() {
         </div>
       </PageHero>
 
-      <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
-        <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-          <Reveal scale className="relative aspect-[4/5] overflow-hidden bg-cream-dark">
-            <Image
-              src={IMAGES.product}
-              alt="Gilgit Naturals Shilajit product jar"
-              fill
-              className="img-zoom object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              priority
-            />
-          </Reveal>
-          <Reveal>
-            <p className="eyebrow">Premium resin</p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight text-forest md:text-5xl">
-              A considered product for everyday rituals and thoughtful retail.
-            </h2>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-charcoal-muted">
-              Our Shilajit resin is presented in clean, sealed packaging with
-              clear product information. Choose a retail pack below or contact
-              us for wholesale quantities and packaging discussions.
-            </p>
-            <div className="mt-8 grid grid-cols-2 gap-3 border-y border-border py-5 sm:grid-cols-4">
-              {["Gilgit origin", "Resin format", "Sealed pack", "Quote available"].map(
-                (item) => (
-                  <p
-                    key={item}
-                    className="text-[10px] tracking-[0.12em] text-gold uppercase"
-                  >
-                    {item}
-                  </p>
-                )
-              )}
-            </div>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button href="/request-quote">Request a Quote</Button>
-              <Button href="/contact" variant="secondary">
-                Contact Us
-              </Button>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="bg-cream-dark/40">
-        <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
-          <Reveal>
-            <SectionHeader
-              eyebrow="Retail Formats"
-              title="Choose your pack size"
-              description="Choose a pack size to start an order on WhatsApp. We will confirm current pricing, availability, delivery options, and payment details."
-              className="mb-12"
-            />
-          </Reveal>
-          <div className="grid gap-5 md:grid-cols-3">
-            {packSizes.map((pack, index) => (
-              <Reveal
-                key={pack.size}
-                delay={((index + 1) as 1 | 2 | 3)}
-              >
-                <article className="flex h-full flex-col border border-border bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_12px_30px_rgba(26,58,42,0.06)]">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <p className="text-[11px] tracking-[0.14em] text-gold uppercase">
-                        {pack.label}
-                      </p>
-                      <h3 className="mt-3 font-serif text-4xl text-forest">
-                        {pack.size}
-                      </h3>
-                    </div>
-                    <span className="border border-border px-2 py-1 text-[10px] tracking-[0.1em] text-charcoal-muted uppercase">
-                      Resin
-                    </span>
-                  </div>
-                  <p className="mt-5 flex-1 text-sm leading-relaxed text-charcoal-muted">
-                    {pack.description}
-                  </p>
-                  <div className="mt-7 border-t border-border pt-5">
-                    <p className="text-sm font-medium text-forest">
-                      Price on request
-                    </p>
-                    <AddToCartButton size={pack.size} />
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ProductShowcase />
 
       <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">

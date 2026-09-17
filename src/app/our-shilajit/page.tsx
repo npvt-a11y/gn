@@ -77,6 +77,34 @@ const packSizes = [
   },
 ];
 
+const productGuidance = [
+  {
+    title: "What is included?",
+    content:
+      "Each pack contains Shilajit resin in the selected size. Product packaging, batch information, and any applicable usage guidance should be checked on the pack received.",
+  },
+  {
+    title: "Nutrition information",
+    content:
+      "Shilajit resin is sold as a concentrated natural product rather than a conventional food serving with a standard nutrition panel. Gilgit Naturals does not publish invented calories, mineral values, or nutrient percentages. Contact us for available batch documentation before ordering.",
+  },
+  {
+    title: "How should it be used?",
+    content:
+      "Use only according to the instructions supplied with the product or provided by Gilgit Naturals for the specific batch. Do not exceed the stated serving guidance. If dosage information is not included with your pack, contact us before use rather than guessing.",
+  },
+  {
+    title: "Who should ask a professional first?",
+    content:
+      "Speak with a qualified healthcare professional before using Shilajit if you are pregnant or breastfeeding, take medication, have an existing medical condition, or have concerns about supplements or possible interactions. This product page is not medical advice.",
+  },
+  {
+    title: "Storage and handling",
+    content:
+      "Keep the container sealed in a cool, dry place away from direct sunlight and moisture. Use a clean, dry utensil and avoid introducing water or other materials into the jar.",
+  },
+];
+
 export default function OurShilajitPage() {
   return (
     <>
@@ -186,6 +214,42 @@ export default function OurShilajitPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <Reveal>
+            <SectionHeader
+              eyebrow="Product Guide"
+              title="Know what you are buying"
+              description="Clear product information helps customers choose a format with confidence. Open each section for practical details."
+            />
+          </Reveal>
+          <Reveal>
+            <div className="divide-y divide-border border-y border-border">
+              {productGuidance.map((item, index) => (
+                <details
+                  key={item.title}
+                  className="group"
+                  open={index === 0}
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 font-serif text-xl text-forest marker:hidden">
+                    {item.title}
+                    <span
+                      aria-hidden="true"
+                      className="text-2xl font-light text-gold transition-transform duration-300 group-open:rotate-45"
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <p className="max-w-2xl pb-5 pr-10 text-sm leading-relaxed text-charcoal-muted">
+                    {item.content}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 

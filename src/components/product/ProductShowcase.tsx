@@ -127,7 +127,12 @@ export function ProductShowcase() {
               </div>
               <span className="text-xs tracking-[0.12em] text-cream/50 uppercase">{selectedSize} · {quantity} pack{quantity > 1 ? "s" : ""}</span>
             </div>
-            <Button type="button" variant="gold" onClick={addToCart} className="mt-7 w-full">
+            <Button
+              type="button"
+              variant="gold"
+              onClick={addToCart}
+              className="mt-7 w-full border-gold bg-gold text-forest hover:border-gold-light hover:bg-gold-light"
+            >
               {added ? "Added to Cart" : "Add to Cart"}
             </Button>
             <p className="mt-3 text-center text-[10px] tracking-[0.14em] text-cream/45 uppercase">

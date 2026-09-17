@@ -48,7 +48,7 @@ export function ProductShowcase() {
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.9fr] lg:gap-20">
           <div>
-            <div className="relative aspect-square overflow-hidden bg-forest-light">
+            <div className="relative aspect-square overflow-hidden bg-forest-muted">
               <Image
                 src={images[activeImage]}
                 alt="Gilgit Naturals Shilajit resin"
@@ -105,7 +105,7 @@ export function ProductShowcase() {
                     onClick={() => setSelectedSize(variant.size)}
                     className={`relative border p-3 text-left transition-colors ${
                       selectedSize === variant.size
-                        ? "border-gold bg-forest-light"
+                        ? "border-gold bg-forest-muted"
                         : "border-white/15 hover:border-gold/60"
                     }`}
                   >
@@ -121,9 +121,9 @@ export function ProductShowcase() {
 
             <div className="mt-6 flex items-center gap-5">
               <div className="flex items-center border border-white/20">
-                <button type="button" onClick={() => setQuantity((value) => Math.max(1, value - 1))} className="h-11 w-10 text-cream/70 hover:bg-forest-light">−</button>
+                <button type="button" onClick={() => setQuantity((value) => Math.max(1, value - 1))} className="h-11 w-10 text-cream/70 hover:bg-forest-muted">−</button>
                 <span className="w-10 text-center text-sm">{quantity}</span>
-                <button type="button" onClick={() => setQuantity((value) => value + 1)} className="h-11 w-10 text-cream/70 hover:bg-forest-light">+</button>
+                <button type="button" onClick={() => setQuantity((value) => value + 1)} className="h-11 w-10 text-cream/70 hover:bg-forest-muted">+</button>
               </div>
               <span className="text-xs tracking-[0.12em] text-cream/50 uppercase">{selectedSize} · {quantity} pack{quantity > 1 ? "s" : ""}</span>
             </div>

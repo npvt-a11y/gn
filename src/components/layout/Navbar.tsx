@@ -170,7 +170,7 @@ export function Navbar() {
 
       <div
         className={clsx(
-          "fixed inset-x-0 top-[4.25rem] z-[60] h-[calc(100dvh-4.25rem)] overflow-y-auto bg-[#f7f5f0] transition-all duration-300 ease-out xl:hidden",
+          "fixed inset-x-0 top-16 z-[60] h-[calc(100dvh-4rem)] overflow-y-auto bg-[#f7f5f0] transition-all duration-300 ease-out xl:hidden",
           open
             ? "translate-y-0 opacity-100"
             : "pointer-events-none -translate-y-2 opacity-0"

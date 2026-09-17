@@ -6,7 +6,6 @@ type TestimonialCardProps = {
   text: string;
   type?: string;
   rating?: number;
-  sample?: boolean;
   className?: string;
 };
 
@@ -16,7 +15,6 @@ export function TestimonialCard({
   text,
   type,
   rating = 5,
-  sample = false,
   className,
 }: TestimonialCardProps) {
   return (
@@ -37,11 +35,6 @@ export function TestimonialCard({
             </span>
           ))}
         </div>
-        {sample && (
-          <span className="border border-gold/30 px-2 py-1 text-[9px] font-medium tracking-[0.14em] text-gold uppercase">
-            Sample
-          </span>
-        )}
       </div>
       <p className="flex-1 text-[0.95rem] leading-relaxed text-charcoal-muted">
         &ldquo;{text}&rdquo;

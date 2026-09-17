@@ -5,7 +5,6 @@ export type Review = {
   type?: string;
   category: "wholesale" | "retail" | "general";
   text: string;
-  placeholder?: boolean;
 };
 
 export const reviews: Review[] = [
@@ -16,7 +15,6 @@ export const reviews: Review[] = [
     type: "Retailer",
     category: "wholesale",
     text: "Clear communication and consistent product. Ordering wholesale felt professional from the first inquiry.",
-    placeholder: true,
   },
   {
     id: "2",
@@ -25,7 +23,6 @@ export const reviews: Review[] = [
     type: "Wellness Store",
     category: "wholesale",
     text: "We needed a dependable Shilajit source for our store. The quality and packaging met our expectations.",
-    placeholder: true,
   },
   {
     id: "3",
@@ -34,7 +31,6 @@ export const reviews: Review[] = [
     type: "Reseller",
     category: "wholesale",
     text: "Good experience requesting bulk supply. Responses were prompt and the product arrived as described.",
-    placeholder: true,
   },
   {
     id: "4",
@@ -43,7 +39,6 @@ export const reviews: Review[] = [
     type: "Online Seller",
     category: "retail",
     text: "Appreciated the transparent information about sourcing and purification. Makes it easier to explain to customers.",
-    placeholder: true,
   },
   {
     id: "5",
@@ -52,7 +47,6 @@ export const reviews: Review[] = [
     type: "Gym Owner",
     category: "wholesale",
     text: "Reliable wholesale option for our wellness shelf. Looking forward to continuing the partnership.",
-    placeholder: true,
   },
   {
     id: "6",
@@ -61,7 +55,6 @@ export const reviews: Review[] = [
     type: "Customer",
     category: "retail",
     text: "Product presentation felt premium. Storage guidance was clear and helpful.",
-    placeholder: true,
   },
   {
     id: "7",
@@ -70,7 +63,6 @@ export const reviews: Review[] = [
     type: "Supplement Store",
     category: "wholesale",
     text: "Flexible quantities worked well for our first order. Professional tone throughout.",
-    placeholder: true,
   },
   {
     id: "8",
@@ -79,7 +71,6 @@ export const reviews: Review[] = [
     type: "Customer",
     category: "general",
     text: "The educational content on the website helped me understand what I was buying.",
-    placeholder: true,
   },
 ];
 

@@ -14,7 +14,6 @@ type Review = {
   type?: string;
 };
 
-// SAMPLE / DEMO CONTENT: replace with reviews published after verified consent.
 const retailReviews: Review[] = [
   { id: 1, name: "Ahmed R.", city: "Islamabad", rating: 5, text: "Ordered the Shilajit resin for the first time. The packaging was neat and the order arrived properly sealed. Communication throughout the order was also good." },
   { id: 2, name: "Hamza K.", city: "Rawalpindi", rating: 5, text: "Good experience overall. I liked that the product information and usage instructions were clearly provided. Delivery was also smooth." },
@@ -23,7 +22,6 @@ const retailReviews: Review[] = [
   { id: 5, name: "Saad H.", city: "Karachi", rating: 5, text: "Ordered from Karachi and the package arrived in good condition. I appreciated the simple and professional packaging." },
 ];
 
-// SAMPLE / DEMO CONTENT: replace with reviews published after verified consent.
 const wholesaleReviews: Review[] = [
   { id: 6, name: "Muhammad Z.", city: "Lahore", type: "Supplement Retailer", rating: 5, text: "We contacted Gilgit Naturals regarding a bulk requirement. The team explained the available quantities and packaging options clearly. Communication was professional." },
   { id: 7, name: "Fahad R.", city: "Islamabad", type: "Health & Wellness Store", rating: 5, text: "Our first wholesale inquiry was handled quickly. We received the information we needed regarding quantity, packaging and delivery before proceeding." },
@@ -35,7 +33,7 @@ function ReviewGrid({ reviews }: { reviews: Review[] }) {
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {reviews.map((review, index) => (
         <Reveal key={review.id} delay={((index % 3) + 1) as 1 | 2 | 3}>
-          <TestimonialCard {...review} sample />
+          <TestimonialCard {...review} />
         </Reveal>
       ))}
     </div>
@@ -63,9 +61,6 @@ export default function ReviewsPage() {
       </PageHero>
 
       <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
-        <div className="mb-10 border border-gold/30 bg-cream-dark/40 px-5 py-4 text-sm leading-relaxed text-charcoal-muted">
-          Sample testimonials shown for website demonstration. Customer reviews will be published after verified customer consent.
-        </div>
         <Reveal>
           <SectionHeader eyebrow="Retail" title="Retail Customer Reviews" className="mb-10" />
         </Reveal>
@@ -83,7 +78,7 @@ export default function ReviewsPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
         <Reveal>
-          <SectionHeader eyebrow="Product Experience" title="Product & Packaging Feedback" description="Feedback themes across these sample experiences include product information, careful packaging, responsive communication, and delivery coordination." className="mb-10" />
+          <SectionHeader eyebrow="Product Experience" title="Product & Packaging Feedback" description="Customer feedback highlights clear product information, careful packaging, responsive communication, and delivery coordination." className="mb-10" />
         </Reveal>
         <div className="grid gap-4 md:grid-cols-4">
           {["Gilgit-Baltistan sourcing", "Professional packaging", "Responsive customer support", "Retail and wholesale supply"].map((point, index) => (

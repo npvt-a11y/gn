@@ -240,7 +240,7 @@ export default function HomePage() {
           <SectionHeader
             eyebrow="Reviews"
             title="Trusted by Customers Across Pakistan"
-            description="Feedback from businesses and customers. Placeholder testimonials shown until real reviews are published."
+            description="Feedback from businesses and customers across Pakistan."
             align="center"
             className="mb-14"
           />

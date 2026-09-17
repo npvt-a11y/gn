@@ -131,7 +131,7 @@ export function ProductShowcase() {
               type="button"
               variant="gold"
               onClick={addToCart}
-              className="mt-7 w-full border-gold bg-gold text-forest hover:border-gold-light hover:bg-gold-light"
+              className="!mt-7 !w-full !border-gold !bg-gold !text-forest hover:!border-gold-light hover:!bg-gold-light"
             >
               {added ? "Added to Cart" : "Add to Cart"}
             </Button>

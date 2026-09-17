@@ -104,77 +104,62 @@ export default function OurShilajitPage() {
 
       <ProductShowcase />
 
-      <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
-        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <Reveal>
-            <SectionHeader
-              eyebrow="Product Guide"
-              title="Know what you are buying"
-              description="Clear product information helps customers choose a format with confidence. Open each section for practical details."
-            />
-          </Reveal>
-          <Reveal>
-            <div className="divide-y divide-border border-y border-border">
-              {productGuidance.map((item, index) => (
-                <details
-                  key={item.title}
-                  className="group"
-                  open={index === 0}
-                >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 font-serif text-xl text-forest marker:hidden">
-                    {item.title}
-                    <span
-                      aria-hidden="true"
-                      className="text-2xl font-light text-gold transition-transform duration-300 group-open:rotate-45"
-                    >
-                      +
-                    </span>
-                  </summary>
-                  <p className="max-w-2xl pb-5 pr-10 text-sm leading-relaxed text-charcoal-muted">
-                    {item.content}
-                  </p>
-                </details>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 pb-20 lg:px-8 lg:pb-28">
-        <Reveal>
-          <SectionHeader
-            eyebrow="Product Detail"
-            title="Product details"
-            className="mb-14"
-          />
-        </Reveal>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {sections.map((s, i) => (
-            <Reveal key={s.title} delay={((i % 5) + 1) as 1 | 2 | 3 | 4 | 5}>
-              <article className="h-full border-t border-gold/40 pt-6">
-                <h2 className="font-serif text-xl text-forest">{s.title}</h2>
-                <p className="mt-3 text-sm leading-relaxed text-charcoal-muted">
-                  {s.text}
-                </p>
-              </article>
+      <div className="bg-forest text-cream">
+        <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+            <Reveal>
+              <SectionHeader
+                eyebrow="Product Guide"
+                title="Know what you are buying"
+                description="Clear product information helps customers choose a format with confidence. Open each section for practical details."
+                light
+              />
             </Reveal>
-          ))}
-        </div>
+            <Reveal>
+              <div className="divide-y divide-white/15 border-y border-white/15">
+                {productGuidance.map((item, index) => (
+                  <details key={item.title} className="group" open={index === 0}>
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 font-serif text-xl text-cream marker:hidden">
+                      {item.title}
+                      <span aria-hidden="true" className="text-2xl font-light text-gold transition-transform duration-300 group-open:rotate-45">
+                        +
+                      </span>
+                    </summary>
+                    <p className="max-w-2xl pb-5 pr-10 text-sm leading-relaxed text-cream/70">
+                      {item.content}
+                    </p>
+                  </details>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </section>
 
-        <Reveal>
-          <aside className="mt-16 border border-border bg-cream-dark/50 p-8 md:p-10">
-            <p className="text-[11px] tracking-[0.14em] text-gold uppercase">
-              Disclaimer
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-charcoal-muted">
-              Information about traditional uses is for educational and cultural
-              context only. It is not medical advice. Gilgit Naturals does not
-              present Shilajit as a cure, treatment or diagnosis for any disease
-              or medical condition.
-            </p>
-          </aside>
-        </Reveal>
-      </section>
+        <section className="mx-auto max-w-6xl px-6 pb-20 lg:px-8 lg:pb-28">
+          <Reveal>
+            <SectionHeader eyebrow="Product Detail" title="Product details" className="mb-14" light />
+          </Reveal>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {sections.map((s, i) => (
+              <Reveal key={s.title} delay={((i % 5) + 1) as 1 | 2 | 3 | 4 | 5}>
+                <article className="h-full border-t border-gold/40 pt-6">
+                  <h2 className="font-serif text-xl text-cream">{s.title}</h2>
+                  <p className="mt-3 text-sm leading-relaxed text-cream/65">{s.text}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <aside className="mt-16 border border-white/15 bg-forest-muted p-8 md:p-10">
+              <p className="text-[11px] tracking-[0.14em] text-gold uppercase">Disclaimer</p>
+              <p className="mt-4 text-sm leading-relaxed text-cream/70">
+                Information about traditional uses is for educational and cultural context only. It is not medical advice. Gilgit Naturals does not present Shilajit as a cure, treatment or diagnosis for any disease or medical condition.
+              </p>
+            </aside>
+          </Reveal>
+        </section>
+      </div>
 
       <CtaBanner
         title="Interested in wholesale supply?"

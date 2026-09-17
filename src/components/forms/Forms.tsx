@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { Button } from "../ui/Button";
 import { IconCheck } from "../ui/Icons";
+import { ORDER_SUBMISSION_URL } from "@/lib/store";
 
 type Field = {
   name: string;
@@ -22,8 +23,7 @@ type FormProps = {
   submissionUrl?: string;
 };
 
-const GOOGLE_APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyxE_WQcySuQBard8OCGy1IVZd32mVNCJqPCgIA6g_KRZB3KlkiR8m1yxnmtkJAGCVYiQ/exec";
+const GOOGLE_APPS_SCRIPT_URL = ORDER_SUBMISSION_URL;
 
 export function ContactForm({
   fields,

@@ -5,17 +5,16 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { PageHero } from "@/components/ui/SectionHeader";
 import { useCart } from "@/components/cart/CartProvider";
-import { CONTACT, IMAGES } from "@/lib/constants";
-
-function checkoutLink(items: { size: string; quantity: number }[]) {
-  const summary = items.map((item) => `- ${item.size} Shilajit Resin: ${item.quantity}`).join("\n");
-  const message = `Hello Gilgit Naturals, I would like to place an order:\n${summary}\n\nPlease confirm the total price, delivery charges, availability, and payment details.`;
-  return `https://wa.me/${CONTACT.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
-}
+import { IMAGES } from "@/lib/constants";
+import { formatPKR, PRODUCT_PRICES } from "@/lib/store";
 
 export default function CartPage() {
   const { items, updateQuantity, removeItem, clearCart } = useCart();
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
+  const subtotal = items.reduce(
+    (sum, item) => sum + PRODUCT_PRICES[item.size] * item.quantity,
+    0
+  );
 
   return (
     <>
@@ -72,6 +71,9 @@ export default function CartPage() {
                             ))}
                           </select>
                         </label>
+                        <span className="hidden text-sm font-medium text-forest sm:block">
+                          {formatPKR(PRODUCT_PRICES[item.size] * item.quantity)}
+                        </span>
                       </div>
                     </div>
                   ))}
@@ -81,10 +83,13 @@ export default function CartPage() {
                 <p className="text-[11px] tracking-[0.14em] text-gold uppercase">Ready when you are</p>
                 <h2 className="mt-3 font-serif text-3xl">Complete your order</h2>
                 <div className="my-6 border-y border-white/15 py-5 text-sm leading-relaxed text-cream/75">
-                  <p>We confirm the current price and delivery fee based on your location before payment.</p>
-                  <p className="mt-3">Your selected items will be included in a WhatsApp message for a quick response.</p>
+                  <p>Cash on Delivery is available. Delivery is Rs. 200 to Islamabad and Rs. 300 to other cities.</p>
                 </div>
-                <Button href={checkoutLink(items)} className="mt-2 w-full">Continue on WhatsApp</Button>
+                <div className="flex justify-between border-b border-white/15 pb-5 text-sm">
+                  <span className="text-cream/70">Subtotal</span>
+                  <span>{formatPKR(subtotal)}</span>
+                </div>
+                <Button href="/checkout" className="mt-2 w-full">Proceed to Checkout</Button>
                 <button type="button" onClick={clearCart} className="mt-5 w-full text-xs tracking-[0.08em] text-cream/60 uppercase underline underline-offset-4 hover:text-cream">
                   Clear cart
                 </button>

@@ -24,7 +24,7 @@ export const NAV_LINKS = [
 
 export const NAV_GROUPS = {
   Shilajit: [
-    { href: "/our-shilajit", label: "Our Shilajit" },
+    { href: "/our-shilajit", label: "Product" },
     { href: "/what-is-shilajit", label: "What Is Shilajit?" },
     { href: "/benefits", label: "Traditional Benefits" },
   ],

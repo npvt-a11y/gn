@@ -185,7 +185,7 @@ export default function WholesalePage() {
               fields={inquiryFields}
               submitLabel="Request Wholesale Quote"
               successTitle="Wholesale inquiry received"
-              successMessage="Thank you for your wholesale inquiry. We will review your requirements and respond using the contact details provided. Connect this form to your preferred email or CRM service for live submissions."
+              successMessage="Thank you for your wholesale inquiry. We will review your requirements and respond using the contact details provided."
             />
           </Reveal>
         </div>

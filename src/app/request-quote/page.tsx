@@ -35,7 +35,7 @@ export default function RequestQuotePage() {
               fields={wholesaleFields}
               submitLabel="Send Wholesale Inquiry"
               successTitle="Your wholesale inquiry has been received"
-              successMessage="Thank you. A member of the Gilgit Naturals team will review your requirements and follow up using the contact details you provided. This success state is ready for connection to your email, WhatsApp Business API, or CRM."
+              successMessage="Thank you. A member of the Gilgit Naturals team will review your requirements and follow up using the contact details you provided."
             />
           </div>
         </Reveal>

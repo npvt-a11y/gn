@@ -46,20 +46,31 @@ export function Navbar() {
           : "bg-transparent py-5 md:py-6"
       )}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center gap-5 px-5 lg:gap-8 lg:px-8">
         <Link
           href="/"
           className={clsx(
-            "font-serif text-lg tracking-[0.12em] uppercase transition-colors duration-500 md:text-xl",
+            "shrink-0 font-serif text-lg tracking-[0.12em] uppercase transition-colors duration-500 md:text-xl",
             lightNav ? "text-white" : "text-forest"
           )}
         >
           Gilgit Naturals
         </Link>
 
-        <nav className="hidden items-center gap-7 xl:flex">
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-4 xl:flex 2xl:gap-6">
           {NAV_LINKS.map((link) => (
-            <div key={link.href} className="relative">
+            <div
+              key={link.href}
+              className="relative shrink-0"
+              onMouseEnter={() =>
+                NAV_GROUPS[link.label as keyof typeof NAV_GROUPS] &&
+                setDropdown(link.label)
+              }
+              onMouseLeave={() =>
+                NAV_GROUPS[link.label as keyof typeof NAV_GROUPS] &&
+                setDropdown(null)
+              }
+            >
               {NAV_GROUPS[link.label as keyof typeof NAV_GROUPS] ? (
                 <>
                   <button
@@ -69,6 +80,7 @@ export function Navbar() {
                         current === link.label ? null : link.label
                       )
                     }
+                    onFocus={() => setDropdown(link.label)}
                     aria-expanded={dropdown === link.label}
                     className={clsx(
                       "nav-link flex items-center gap-1 text-[0.75rem] tracking-[0.1em] uppercase transition-colors duration-500",
@@ -83,18 +95,20 @@ export function Navbar() {
                     </span>
                   </button>
                   {dropdown === link.label && (
-                    <div className="absolute left-1/2 top-full mt-4 w-56 -translate-x-1/2 border border-border bg-cream p-2 shadow-[0_16px_35px_rgba(26,58,42,0.12)]">
-                      {NAV_GROUPS[
-                        link.label as keyof typeof NAV_GROUPS
-                      ].map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block px-4 py-3 text-xs tracking-[0.08em] text-charcoal-muted uppercase transition-colors hover:bg-cream-dark hover:text-forest"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
+                    <div className="absolute left-1/2 top-full z-10 w-56 -translate-x-1/2 pt-3">
+                      <div className="border border-border bg-cream p-2 shadow-[0_16px_35px_rgba(26,58,42,0.12)]">
+                        {NAV_GROUPS[
+                          link.label as keyof typeof NAV_GROUPS
+                        ].map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block px-4 py-3 text-xs tracking-[0.08em] text-charcoal-muted uppercase transition-colors hover:bg-cream-dark hover:text-forest"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </>
@@ -120,11 +134,11 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="ml-auto flex shrink-0 items-center gap-2">
           <Link
             href="/request-quote"
             className={clsx(
-              "hidden px-4 py-2.5 text-[0.6875rem] font-medium tracking-[0.08em] uppercase transition-all duration-500 xl:inline-flex xl:px-5",
+              "hidden whitespace-nowrap px-3 py-2.5 text-[0.625rem] font-medium tracking-[0.07em] uppercase transition-all duration-500 xl:inline-flex 2xl:px-4",
               lightNav
                 ? "border border-white/70 bg-transparent text-white hover:bg-white hover:text-forest"
                 : "bg-forest text-cream hover:bg-forest-light"

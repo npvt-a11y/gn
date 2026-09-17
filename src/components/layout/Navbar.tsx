@@ -78,7 +78,6 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <CartButton light={lightNav} />
           <Link
             href="/request-quote"
             className={clsx(
@@ -90,6 +89,7 @@ export function Navbar() {
           >
             Request Wholesale Quote
           </Link>
+          <CartButton light={lightNav} />
           <button
             type="button"
             className={clsx(

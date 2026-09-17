@@ -42,10 +42,27 @@ export function ContactForm({
 
     try {
       const form = e.currentTarget;
+      const formData = new FormData(form);
+      const name = formData.get("name");
+      const subject = formData.get("subject");
+      const message = formData.get("message");
+
+      if (name && !formData.has("fullName")) {
+        formData.set("fullName", String(name));
+      }
+      if ((subject || message) && !formData.has("additional")) {
+        formData.set(
+          "additional",
+          [subject && `Subject: ${subject}`, message]
+            .filter(Boolean)
+            .join("\n\n")
+        );
+      }
+
       await fetch(submissionUrl, {
         method: "POST",
         mode: "no-cors",
-        body: new FormData(form),
+        body: formData,
       });
       setSubmitted(true);
     } catch {

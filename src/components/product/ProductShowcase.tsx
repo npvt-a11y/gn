@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { useCart } from "@/components/cart/CartProvider";
 import { IMAGES } from "@/lib/constants";
+import { formatPKR, PRODUCT_PRICES } from "@/lib/store";
 
 const variants = [
   { size: "10g", label: "Trial size", description: "A considered introduction." },
@@ -90,7 +91,7 @@ export function ProductShowcase() {
             <p className="mt-7 max-w-xl text-base leading-relaxed text-cream/70">
               Carefully handled Shilajit resin in a sealed, retail-ready format.
               Select a size, choose your quantity, and add it to your cart before
-              confirming the order on WhatsApp.
+              confirming the order at checkout.
             </p>
 
             <div className="mt-8 border-y border-white/15 py-6">
@@ -111,12 +112,12 @@ export function ProductShowcase() {
                   >
                     <span className="block font-serif text-2xl">{variant.size}</span>
                     <span className="mt-1 block text-[10px] text-cream/50 uppercase">
-                      {variant.label}
+                      {variant.label} · {formatPKR(PRODUCT_PRICES[variant.size])}
                     </span>
                   </button>
                 ))}
               </div>
-              <p className="mt-3 text-xs text-cream/50">{selected.description} · Price confirmed on WhatsApp</p>
+              <p className="mt-3 text-xs text-cream/50">{selected.description} · {formatPKR(PRODUCT_PRICES[selectedSize])} per pack</p>
             </div>
 
             <div className="mt-6 flex items-center gap-5">
@@ -136,7 +137,7 @@ export function ProductShowcase() {
               {added ? "Added to Cart" : "Add to Cart"}
             </Button>
             <p className="mt-3 text-center text-[10px] tracking-[0.14em] text-cream/45 uppercase">
-              Pricing, delivery and payment confirmed personally
+              Cash on Delivery · delivery calculated at checkout
             </p>
           </div>
         </div>

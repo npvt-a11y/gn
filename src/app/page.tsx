@@ -16,6 +16,7 @@ import { TestimonialCard } from "@/components/ui/TestimonialCard";
 import { reviews } from "@/lib/content";
 import { IMAGES } from "@/lib/constants";
 import { createMetadata } from "@/lib/seo";
+import { formatPKR, PRODUCT_PRICES } from "@/lib/store";
 
 export const metadata = createMetadata({
   title: "Gilgit Naturals",
@@ -103,6 +104,43 @@ export default function HomePage() {
             {trustItems.map((item, i) => (
               <Reveal key={item.title} delay={(i + 1) as 1 | 2 | 3 | 4 | 5}>
                 <TrustItem icon={item.icon} title={item.title} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Retail product endorsement */}
+      <section className="bg-forest text-cream">
+        <div className="mx-auto max-w-6xl px-6 py-24 lg:px-8 lg:py-32">
+          <Reveal>
+            <SectionHeader
+              eyebrow="Retail Collection"
+              title="Gilgit Shilajit, ready to order"
+              description="Choose the format that suits you. Add a pack to your cart, then complete your Cash on Delivery order with clear pricing and delivery charges."
+              light
+              align="center"
+              className="mb-14"
+            />
+          </Reveal>
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              { size: "10g", label: "Trial size", text: "A considered introduction to Gilgit Naturals Shilajit resin." },
+              { size: "20g", label: "Everyday size", text: "A balanced format for regular personal use or gifting." },
+              { size: "50g", label: "Value size", text: "A larger format for customers who order regularly." },
+            ].map((pack, index) => (
+              <Reveal key={pack.size} delay={((index + 1) as 1 | 2 | 3)}>
+                <article className="flex h-full flex-col border border-white/15 bg-forest-muted p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/70 hover:bg-forest-light">
+                  <p className="text-[11px] tracking-[0.14em] text-gold-light uppercase">{pack.label}</p>
+                  <div className="mt-4 flex items-end justify-between gap-3">
+                    <h3 className="font-serif text-4xl text-cream">{pack.size}</h3>
+                    <p className="text-lg font-medium text-gold-light">{formatPKR(PRODUCT_PRICES[pack.size])}</p>
+                  </div>
+                  <p className="mt-5 flex-1 text-sm leading-relaxed text-cream/65">{pack.text}</p>
+                  <Button href="/our-shilajit" variant="gold" className="mt-7 !border-gold/70 !text-cream hover:!bg-gold hover:!text-forest">
+                    View Product
+                  </Button>
+                </article>
               </Reveal>
             ))}
           </div>

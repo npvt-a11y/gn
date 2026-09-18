@@ -21,7 +21,7 @@ export default function CartPage() {
       <PageHero
         eyebrow="Your Order"
         title="Shopping cart"
-        description="Review your selected pack sizes, then send the complete order to Gilgit Naturals on WhatsApp for price and delivery confirmation."
+        description="Review your selected pack sizes, then continue to checkout to confirm your delivery details and Cash on Delivery order."
       />
       <section className="bg-cream-dark/30">
         <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">

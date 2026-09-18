@@ -35,7 +35,7 @@ export function ProductShowcase() {
   const [activeTab, setActiveTab] = useState<keyof typeof tabs>("details");
   const [added, setAdded] = useState(false);
   const { addItem } = useCart();
-  const images = [IMAGES.product, IMAGES.productClose, IMAGES.texture];
+  const images = [IMAGES.product, IMAGES.productClose, IMAGES.productJar, IMAGES.texture];
   const selected = variants.find((variant) => variant.size === selectedSize)!;
 
   function addToCart() {
@@ -62,7 +62,7 @@ export function ProductShowcase() {
                 Gilgit origin
               </span>
             </div>
-            <div className="mt-3 grid grid-cols-3 gap-3">
+            <div className="mt-3 grid grid-cols-4 gap-3">
               {images.map((image, index) => (
                 <button
                   key={image}

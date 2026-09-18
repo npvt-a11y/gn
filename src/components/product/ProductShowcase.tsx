@@ -36,7 +36,12 @@ export function ProductShowcase() {
   const [added, setAdded] = useState(false);
   const { addItem } = useCart();
   const images = [IMAGES.product, IMAGES.productClose, IMAGES.productJar, IMAGES.texture];
+  const imageLabels = ["Product pack", "Sealed resin", "Product jar", "Shilajit texture"];
   const selected = variants.find((variant) => variant.size === selectedSize)!;
+
+  function changeImage(direction: -1 | 1) {
+    setActiveImage((current) => (current + direction + images.length) % images.length);
+  }
 
   function addToCart() {
     for (let index = 0; index < quantity; index += 1) addItem(selectedSize);
@@ -52,15 +57,31 @@ export function ProductShowcase() {
             <div className="relative aspect-square overflow-hidden bg-forest-muted">
               <Image
                 src={images[activeImage]}
-                alt="Gilgit Naturals Shilajit resin"
+                alt={`${imageLabels[activeImage]} - Gilgit Naturals Shilajit`}
                 fill
                 priority
-                className="object-cover transition-opacity duration-500"
+                className="object-cover transition duration-500 ease-out hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 55vw"
               />
               <span className="absolute left-5 top-5 bg-gold px-3 py-2 text-[10px] tracking-[0.14em] text-forest uppercase">
                 Gilgit origin
               </span>
+              <button
+                type="button"
+                onClick={() => changeImage(-1)}
+                aria-label="View previous product image"
+                className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-forest/75 text-xl text-cream backdrop-blur-sm transition hover:border-gold hover:bg-forest"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                onClick={() => changeImage(1)}
+                aria-label="View next product image"
+                className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-forest/75 text-xl text-cream backdrop-blur-sm transition hover:border-gold hover:bg-forest"
+              >
+                ›
+              </button>
             </div>
             <div className="mt-3 grid grid-cols-4 gap-3">
               {images.map((image, index) => (
@@ -71,7 +92,8 @@ export function ProductShowcase() {
                   className={`relative aspect-square overflow-hidden border transition-colors ${
                     activeImage === index ? "border-gold" : "border-transparent"
                   }`}
-                  aria-label={`View product image ${index + 1}`}
+                  aria-label={`View ${imageLabels[index]}`}
+                  aria-current={activeImage === index ? "true" : undefined}
                 >
                   <Image src={image} alt="" fill className="object-cover" sizes="20vw" />
                 </button>

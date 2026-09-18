@@ -56,11 +56,12 @@ export function ProductShowcase() {
           <div>
             <div className="relative aspect-square overflow-hidden bg-forest-muted">
               <Image
+                key={activeImage}
                 src={images[activeImage]}
                 alt={`${imageLabels[activeImage]} - Gilgit Naturals Shilajit`}
                 fill
                 priority
-                className="object-cover transition duration-500 ease-out hover:scale-105"
+                className="gallery-image-enter object-cover hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 55vw"
               />
               <span className="absolute left-5 top-5 bg-gold px-3 py-2 text-[10px] tracking-[0.14em] text-forest uppercase">
@@ -70,17 +71,17 @@ export function ProductShowcase() {
                 type="button"
                 onClick={() => changeImage(-1)}
                 aria-label="View previous product image"
-                className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-forest/75 text-xl text-cream backdrop-blur-sm transition hover:border-gold hover:bg-forest"
+                className="group absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/35 bg-forest/70 text-cream shadow-lg backdrop-blur-sm transition duration-300 hover:scale-110 hover:border-gold hover:bg-gold hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
               >
-                ‹
+                <svg aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="m15 18-6-6 6-6" /></svg>
               </button>
               <button
                 type="button"
                 onClick={() => changeImage(1)}
                 aria-label="View next product image"
-                className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-forest/75 text-xl text-cream backdrop-blur-sm transition hover:border-gold hover:bg-forest"
+                className="group absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/35 bg-forest/70 text-cream shadow-lg backdrop-blur-sm transition duration-300 hover:scale-110 hover:border-gold hover:bg-gold hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
               >
-                ›
+                <svg aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="m9 18 6-6-6-6" /></svg>
               </button>
             </div>
             <div className="mt-3 grid grid-cols-4 gap-3">
@@ -89,13 +90,13 @@ export function ProductShowcase() {
                   key={image}
                   type="button"
                   onClick={() => setActiveImage(index)}
-                  className={`relative aspect-square overflow-hidden border transition-colors ${
+                  className={`group relative aspect-square overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:border-gold/70 ${
                     activeImage === index ? "border-gold" : "border-transparent"
                   }`}
                   aria-label={`View ${imageLabels[index]}`}
                   aria-current={activeImage === index ? "true" : undefined}
                 >
-                  <Image src={image} alt="" fill className="object-cover" sizes="20vw" />
+                  <Image src={image} alt="" fill className="object-cover transition duration-500 group-hover:scale-110" sizes="20vw" />
                 </button>
               ))}
             </div>

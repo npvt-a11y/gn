@@ -143,7 +143,7 @@ export default function CheckoutPage() {
           <aside className="h-fit border border-forest bg-forest p-7 text-cream md:p-8 lg:sticky lg:top-28">
             <p className="text-[11px] tracking-[0.14em] text-gold uppercase">Order summary</p>
             <h2 className="mt-3 font-serif text-3xl">Your selection</h2>
-            <div className="group relative mt-6 h-32 overflow-hidden border border-white/15 bg-forest-light">
+            <div className="group relative mt-6 h-32 overflow-hidden">
               <Image
                 src={IMAGES.productPng}
                 alt="Gilgit Naturals Shilajit product"

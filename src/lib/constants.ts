@@ -66,7 +66,7 @@ export const IMAGES = {
     "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80",
   mountainsAlt: "/gilgit shilajeet.png",
   product: "/gilgitnatural-brand0image.png",
-  productPng: "/pngproduct.png",
+  productPng: "/gilgit_naturals_product_transparent(1).png",
   productClose: "/salajeet-refined-packed-giligit-natural-from-gilgit.jpg",
   productJar: "/Gilgit Naturals Organic Jar in Nature.png",
   texture: "/gilgit shilajeet.png",

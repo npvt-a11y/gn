@@ -135,7 +135,7 @@ export default function QualityPage() {
               src={IMAGES.product}
               alt="Gilgit Naturals Shilajit product"
               fill
-              className="object-cover"
+              className="img-zoom object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </Reveal>
@@ -200,14 +200,16 @@ export default function QualityPage() {
               </div>
 
               <div className="bg-white p-4 sm:p-6">
-                <Image
-                  src="/images/pcsir-shilajit-report.jpg"
-                  alt="Original PCSIR laboratory test report for Gilgit Naturals Salajeet"
-                  width={1200}
-                  height={1700}
-                  className="h-auto w-full"
-                  priority
-                />
+                <div className="quality-report-document">
+                  <Image
+                    src="/images/pcsir-shilajit-report.jpg"
+                    alt="Original PCSIR laboratory test report for Gilgit Naturals Salajeet"
+                    width={1200}
+                    height={1700}
+                    className="h-auto w-full"
+                    priority
+                  />
+                </div>
               </div>
             </div>
 
@@ -339,7 +341,7 @@ export default function QualityPage() {
               key={pillar.title}
               delay={((i % 4) + 1) as 1 | 2 | 3 | 4}
             >
-              <article className="border-t border-border pt-6">
+              <article className="border-t border-border pt-6 transition-transform duration-500 hover:-translate-y-1">
                 <h2 className="font-serif text-2xl text-forest">
                   {pillar.title}
                 </h2>

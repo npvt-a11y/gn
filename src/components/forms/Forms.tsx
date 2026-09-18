@@ -2,6 +2,8 @@
 
 import { useState, type FormEvent } from "react";
 import { Button } from "../ui/Button";
+import { IconCheck } from "../ui/Icons";
+import { ORDER_SUBMISSION_URL } from "@/lib/store";
 
 type Field = {
   name: string;
@@ -18,35 +20,88 @@ type FormProps = {
   submitLabel: string;
   successTitle?: string;
   successMessage?: string;
+  submissionUrl?: string;
 };
+
+const GOOGLE_APPS_SCRIPT_URL = ORDER_SUBMISSION_URL;
 
 export function ContactForm({
   fields,
   submitLabel,
   successTitle = "Inquiry received",
-  successMessage = "Thank you. Your message has been noted. We will respond using the contact details you provided. (Form submission is a demonstration success state — connect to your backend or form service to go live.)",
+  successMessage = "Thank you for reaching out. Your message has been sent successfully, and our team will follow up using the contact details you provided.",
+  submissionUrl = GOOGLE_APPS_SCRIPT_URL,
 }: FormProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmissionError("");
+
+    try {
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+      const name = formData.get("name");
+      const subject = formData.get("subject");
+      const message = formData.get("message");
+
+      if (name && !formData.has("fullName")) {
+        formData.set("fullName", String(name));
+      }
+      if ((subject || message) && !formData.has("additional")) {
+        formData.set(
+          "additional",
+          [subject && `Subject: ${subject}`, message]
+            .filter(Boolean)
+            .join("\n\n")
+        );
+      }
+
+      await fetch(submissionUrl, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData,
+      });
+      setSubmitted(true);
+    } catch {
+      setSubmissionError(
+        "We could not send your inquiry. Please check your connection and try again."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
     return (
-      <div className="border border-gold/30 bg-white p-10 text-center md:p-14">
-        <p className="eyebrow mb-4">Thank you</p>
-        <h3 className="font-serif text-3xl text-forest">{successTitle}</h3>
+      <div className="border border-gold/30 bg-white p-8 text-center md:p-14">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-forest text-cream">
+          <IconCheck className="h-7 w-7" />
+        </div>
+        <p className="eyebrow mt-6 mb-4">Message sent</p>
+        <h3 className="font-serif text-3xl text-forest md:text-4xl">
+          {successTitle}
+        </h3>
         <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-charcoal-muted">
           {successMessage}
         </p>
+        <div className="mx-auto mt-8 max-w-sm border border-border bg-cream px-5 py-4 text-left">
+          <p className="text-[11px] tracking-[0.12em] text-gold uppercase">
+            What happens next
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-charcoal-muted">
+            We will review your message and contact you as soon as possible.
+          </p>
+        </div>
         <button
           type="button"
           onClick={() => setSubmitted(false)}
-          className="mt-8 text-xs tracking-[0.12em] text-forest uppercase underline underline-offset-4"
+          className="mt-8 text-xs font-medium tracking-[0.12em] text-forest uppercase underline underline-offset-4 transition-colors hover:text-gold"
         >
-          Send another inquiry
+          Send another message
         </button>
       </div>
     );
@@ -114,9 +169,14 @@ export function ContactForm({
           );
         })}
       </div>
+      {submissionError && (
+        <p role="alert" className="text-sm text-red-700">
+          {submissionError}
+        </p>
+      )}
       <div className="pt-2">
-        <Button type="submit" variant="primary">
-          {submitLabel}
+        <Button type="submit" variant="primary" disabled={submitting}>
+          {submitting ? "Sending…" : submitLabel}
         </Button>
       </div>
     </form>
@@ -183,7 +243,7 @@ export const contactFields: Field[] = [
 ];
 
 export const inquiryFields: Field[] = [
-  { name: "name", label: "Name", required: true },
+  { name: "fullName", label: "Name", required: true },
   { name: "businessName", label: "Business Name" },
   { name: "phone", label: "Phone / WhatsApp", type: "tel", required: true },
   { name: "email", label: "Email", type: "email", required: true },
@@ -211,7 +271,7 @@ export const inquiryFields: Field[] = [
     options: ["Jars", "Bulk", "Discuss"],
   },
   {
-    name: "message",
+    name: "additional",
     label: "Message",
     as: "textarea",
     placeholder: "Share any details about your wholesale inquiry…",

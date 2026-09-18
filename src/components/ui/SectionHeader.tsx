@@ -64,6 +64,8 @@ type PageHeroProps = {
   title: string;
   description?: string;
   children?: ReactNode;
+  className?: string;
+  light?: boolean;
 };
 
 export function PageHero({
@@ -71,16 +73,24 @@ export function PageHero({
   title,
   description,
   children,
+  className,
+  light = false,
 }: PageHeroProps) {
   return (
-    <section className="border-b border-border bg-cream-dark/40 pt-32 pb-16 md:pt-40 md:pb-20">
+    <section
+      className={clsx(
+        "border-b border-border pt-32 pb-16 md:pt-40 md:pb-20",
+        light ? "bg-forest text-cream" : "bg-cream-dark/40",
+        className
+      )}
+    >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        {eyebrow && <p className="eyebrow mb-5">{eyebrow}</p>}
-        <h1 className="font-serif max-w-3xl text-4xl leading-[1.15] text-forest md:text-5xl lg:text-6xl">
+        {eyebrow && <p className={clsx("eyebrow mb-5", light && "text-gold-light")}>{eyebrow}</p>}
+        <h1 className={clsx("font-serif max-w-3xl text-4xl leading-[1.15] md:text-5xl lg:text-6xl", light ? "text-cream" : "text-forest")}>
           {title}
         </h1>
         {description && (
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-charcoal-muted md:text-lg">
+          <p className={clsx("mt-6 max-w-2xl text-base leading-relaxed md:text-lg", light ? "text-cream/70" : "text-charcoal-muted")}>
             {description}
           </p>
         )}

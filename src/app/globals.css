@@ -83,6 +83,20 @@ h4,
   }
 }
 
+@keyframes hero-image-drift {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.hero-image-drift {
+  animation: hero-image-drift 20s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
 @keyframes underline-grow {
   from {
     transform: scaleX(0);
@@ -174,6 +188,54 @@ h4,
 
 .img-zoom {
   transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.img-zoom:hover {
+  transform: scale(1.04);
+}
+
+@keyframes quality-document-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.012);
+  }
+}
+
+.product-png-breathe {
+  animation: product-png-breathe 5s ease-in-out infinite;
+}
+
+.gallery-image-enter {
+  animation: gallery-image-enter 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes gallery-image-enter {
+  from {
+    opacity: 0;
+    transform: scale(1.06) translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+@keyframes product-png-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.025);
+  }
+}
+
+.quality-report-document {
+  transform-origin: center top;
+  animation: quality-document-breathe 12s ease-in-out infinite;
 }
 
 .group:hover .img-zoom {
@@ -284,6 +346,17 @@ h4,
   color: #9a9a9a;
 }
 
+.policy-content ul,
+.legal-content ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.policy-content li + li,
+.legal-content li + li {
+  margin-top: 0.5rem;
+}
+
 .divider-gold {
   width: 48px;
   height: 1px;
@@ -291,6 +364,14 @@ h4,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .product-png-breathe {
+    animation: none;
+  }
+
+  .gallery-image-enter {
+    animation: none;
+  }
+
   html {
     scroll-behavior: auto;
   }
@@ -307,5 +388,13 @@ h4,
   .reveal-scale {
     opacity: 1;
     transform: none;
+  }
+
+  .hero-image-drift {
+    animation: none;
+  }
+
+  .quality-report-document {
+    animation: none;
   }
 }

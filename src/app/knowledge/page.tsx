@@ -2,7 +2,7 @@ import { BlogCard } from "@/components/ui/BlogCard";
 import { CtaBanner } from "@/components/ui/CtaBanner";
 import { Reveal } from "@/components/ui/Reveal";
 import { PageHero } from "@/components/ui/SectionHeader";
-import { articles } from "@/lib/articles";
+import { getPublishedArticles } from "@/lib/sanity";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -13,7 +13,8 @@ export const metadata = createMetadata({
   keywords: ["Shilajit supplier", "bulk Shilajit Pakistan"],
 });
 
-export default function KnowledgePage() {
+export default async function KnowledgePage() {
+  const articles = await getPublishedArticles();
   return (
     <>
       <PageHero

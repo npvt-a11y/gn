@@ -1,115 +1,99 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { CtaBanner } from "@/components/ui/CtaBanner";
 import { Reveal } from "@/components/ui/Reveal";
 import { PageHero, SectionHeader } from "@/components/ui/SectionHeader";
 import { TestimonialCard } from "@/components/ui/TestimonialCard";
-import { reviews } from "@/lib/content";
+import { reviews, type Review } from "@/lib/content";
 import { createMetadata } from "@/lib/seo";
 
+function ReviewGrid({ reviews }: { reviews: Review[] }) {
+  return (
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {reviews.map((review, index) => (
+        <Reveal key={review.id} delay={((index % 3) + 1) as 1 | 2 | 3}>
+          <TestimonialCard {...review} />
+        </Reveal>
+      ))}
+    </div>
+  );
+}
+
 export const metadata = createMetadata({
-  title: "Reviews",
+  title: "Gilgit Naturals Reviews | Shilajit Customer & Wholesale Feedback",
   description:
-    "Customer and wholesale reviews for Gilgit Naturals. Placeholder testimonials until verified reviews are published.",
+    "Read customer feedback about Gilgit Naturals Shilajit, packaging, customer service and wholesale inquiries from customers across Pakistan.",
   path: "/reviews",
 });
 
 export default function ReviewsPage() {
-  const wholesale = reviews.filter((r) => r.category === "wholesale");
-  const retail = reviews.filter((r) => r.category === "retail");
-  const general = reviews.filter((r) => r.category === "general");
+  const retailReviews = reviews.filter((review) => review.category === "retail");
+  const wholesaleReviews = reviews.filter(
+    (review) => review.category === "wholesale"
+  );
 
   return (
     <>
       <PageHero
-        eyebrow="Testimonials"
-        title="Customer Reviews"
-        description="Feedback from wholesale partners and customers. Reviews marked as placeholders can be replaced with verified testimonials."
-      />
+        eyebrow="Customer Feedback"
+        title="Gilgit Naturals Customer Reviews"
+        description="Real feedback matters. Explore customer experiences with Gilgit Naturals products, packaging, service, and wholesale orders."
+      >
+        <p className="max-w-xl border-l-2 border-gold pl-4 text-sm leading-relaxed text-charcoal-muted">
+          Customer feedback is independently submitted and published with permission.
+        </p>
+      </PageHero>
 
       <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
         <Reveal>
-          <SectionHeader
-            eyebrow="Wholesale"
-            title="Wholesale Customer Reviews"
-            className="mb-10"
-          />
+          <SectionHeader eyebrow="Retail" title="Retail Customer Reviews" className="mb-10" />
         </Reveal>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {wholesale.map((r, i) => (
-            <Reveal key={r.id} delay={((i % 3) + 1) as 1 | 2 | 3}>
-              <TestimonialCard {...r} />
-            </Reveal>
-          ))}
-        </div>
+        <ReviewGrid reviews={retailReviews} />
       </section>
 
       <section className="bg-cream-dark/40">
         <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
           <Reveal>
-            <SectionHeader
-              eyebrow="Retail"
-              title="Retail Customer Reviews"
-              className="mb-10"
-            />
+            <SectionHeader eyebrow="Wholesale & Bulk" title="Wholesale & Bulk Buyer Feedback" className="mb-10" />
           </Reveal>
-          <div className="grid gap-6 md:grid-cols-2">
-            {retail.map((r, i) => (
-              <Reveal key={r.id} delay={((i % 2) + 1) as 1 | 2}>
-                <TestimonialCard {...r} />
-              </Reveal>
-            ))}
-          </div>
+          <ReviewGrid reviews={wholesaleReviews} />
         </div>
       </section>
 
-      {general.length > 0 && (
-        <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
-          <Reveal>
-            <SectionHeader
-              eyebrow="General"
-              title="More Feedback"
-              className="mb-10"
-            />
-          </Reveal>
-          <div className="grid gap-6 md:grid-cols-2">
-            {general.map((r) => (
-              <Reveal key={r.id}>
-                <TestimonialCard {...r} />
-              </Reveal>
-            ))}
-          </div>
-        </section>
-      )}
+      <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
+        <Reveal>
+          <SectionHeader eyebrow="Product Experience" title="Product & Packaging Feedback" description="Customer feedback highlights clear product information, careful packaging, responsive communication, and delivery coordination." className="mb-10" />
+        </Reveal>
+        <div className="grid gap-4 md:grid-cols-4">
+          {["Gilgit-Baltistan sourcing", "Professional packaging", "Responsive customer support", "Retail and wholesale supply"].map((point, index) => (
+            <Reveal key={point} delay={((index % 4) + 1) as 1 | 2 | 3 | 4}>
+              <div className="h-full border-t-2 border-gold bg-white p-6">
+                <p className="font-serif text-xl text-forest">{point}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
 
       <section className="border-t border-border bg-white">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-8">
           <Reveal>
-            <p className="eyebrow mb-4">Share</p>
-            <h2 className="font-serif text-3xl text-forest md:text-4xl">
-              Want to Share Your Experience?
-            </h2>
+            <p className="eyebrow mb-4">Your Experience</p>
+            <h2 className="font-serif text-3xl text-forest md:text-4xl">Have You Purchased From Gilgit Naturals?</h2>
             <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-charcoal-muted">
-              We welcome honest feedback from wholesale partners and customers.
-              Submit a review through our contact channel.
+              We value genuine customer feedback. If you have purchased from us, we&apos;d love to hear about your experience.
             </p>
             <div className="mt-10">
-              <Button href="/contact">Submit a Review</Button>
+              <Button href="/contact">Share Your Review</Button>
             </div>
-            <p className="mt-6 text-xs text-charcoal-muted/70">
-              Or email us via the{" "}
-              <Link href="/contact" className="underline underline-offset-2">
-                Contact page
-              </Link>
-              .
-            </p>
           </Reveal>
         </div>
       </section>
 
       <CtaBanner
-        title="Join businesses sourcing with confidence"
-        description="Request a wholesale quote when you are ready to discuss supply."
+        title="Looking for Shilajit in bulk?"
+        description="Speak with Gilgit Naturals about wholesale quantities, packaging requirements and regular supply."
+        secondaryHref="/contact"
+        secondaryLabel="Contact Us"
       />
     </>
   );

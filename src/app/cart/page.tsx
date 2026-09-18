@@ -47,9 +47,9 @@ export default function CartPage() {
                 </div>
                 <div className="divide-y divide-border">
                   {items.map((item) => (
-                    <div key={item.size} className="flex gap-4 px-6 py-6 md:px-8">
-                      <div className="group relative h-20 w-24 shrink-0 overflow-hidden bg-cream-dark">
-                        <Image src={IMAGES.productPng} alt="Gilgit Naturals Shilajit product" fill className="product-png-breathe object-contain p-2 transition duration-500 ease-out group-hover:scale-110 group-hover:-rotate-2" sizes="96px" />
+                    <div key={item.size} className="flex gap-5 px-6 py-6 md:px-8">
+                      <div className="group relative h-28 w-36 shrink-0 overflow-visible">
+                        <Image src={IMAGES.productPng} alt="Gilgit Naturals Shilajit product" fill className="product-png-breathe object-contain transition duration-500 ease-out group-hover:scale-110 group-hover:-rotate-2" sizes="144px" />
                       </div>
                       <div className="flex flex-1 items-center justify-between gap-5">
                         <div>

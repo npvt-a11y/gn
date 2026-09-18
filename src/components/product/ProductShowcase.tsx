@@ -35,8 +35,8 @@ export function ProductShowcase() {
   const [activeTab, setActiveTab] = useState<keyof typeof tabs>("details");
   const [added, setAdded] = useState(false);
   const { addItem } = useCart();
-  const images = [IMAGES.product, IMAGES.productClose, IMAGES.productJar, IMAGES.texture];
-  const imageLabels = ["Product pack", "Sealed resin", "Product jar", "Shilajit texture"];
+  const images = IMAGES.productGallery;
+  const imageLabels = ["Product view 1", "Product view 2", "Product view 3", "Product view 4"];
   const selected = variants.find((variant) => variant.size === selectedSize)!;
 
   function changeImage(direction: -1 | 1) {
@@ -61,7 +61,7 @@ export function ProductShowcase() {
                 alt={`${imageLabels[activeImage]} - Gilgit Naturals Shilajit`}
                 fill
                 priority
-                className="gallery-image-enter object-cover hover:scale-105"
+                className="gallery-image-enter object-cover"
                 sizes="(max-width: 1024px) 100vw, 55vw"
               />
               <span className="absolute left-5 top-5 bg-gold px-3 py-2 text-[10px] tracking-[0.14em] text-forest uppercase">
@@ -71,7 +71,7 @@ export function ProductShowcase() {
                 type="button"
                 onClick={() => changeImage(-1)}
                 aria-label="View previous product image"
-                className="group absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/35 bg-forest/70 text-cream shadow-lg backdrop-blur-sm transition duration-300 hover:scale-110 hover:border-gold hover:bg-gold hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                className="group absolute left-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center bg-transparent text-cream/75 transition-colors duration-500 hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
               >
                 <svg aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="m15 18-6-6 6-6" /></svg>
               </button>
@@ -79,7 +79,7 @@ export function ProductShowcase() {
                 type="button"
                 onClick={() => changeImage(1)}
                 aria-label="View next product image"
-                className="group absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/35 bg-forest/70 text-cream shadow-lg backdrop-blur-sm transition duration-300 hover:scale-110 hover:border-gold hover:bg-gold hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                className="group absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center bg-transparent text-cream/75 transition-colors duration-500 hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
               >
                 <svg aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="m9 18 6-6-6-6" /></svg>
               </button>
@@ -90,13 +90,13 @@ export function ProductShowcase() {
                   key={image}
                   type="button"
                   onClick={() => setActiveImage(index)}
-                  className={`group relative aspect-square overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:border-gold/70 ${
+                  className={`relative aspect-square overflow-hidden border transition-colors duration-700 ${
                     activeImage === index ? "border-gold" : "border-transparent"
                   }`}
                   aria-label={`View ${imageLabels[index]}`}
                   aria-current={activeImage === index ? "true" : undefined}
                 >
-                  <Image src={image} alt="" fill className="object-cover transition duration-500 group-hover:scale-110" sizes="20vw" />
+                  <Image src={image} alt="" fill className="object-cover" sizes="20vw" />
                 </button>
               ))}
             </div>

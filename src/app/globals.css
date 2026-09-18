@@ -209,7 +209,7 @@ h4,
 }
 
 .gallery-image-enter {
-  animation: gallery-image-enter 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: gallery-image-enter 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes gallery-image-enter {

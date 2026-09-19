@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState, type TouchEvent } from "react";
 import { Button } from "@/components/ui/Button";
 import { useCart } from "@/components/cart/CartProvider";
 import { IMAGES } from "@/lib/constants";
@@ -34,6 +34,7 @@ export function ProductShowcase() {
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState<keyof typeof tabs>("details");
   const [added, setAdded] = useState(false);
+  const touchStartX = useRef<number | null>(null);
   const { addItem } = useCart();
   const images = IMAGES.productGallery;
   const imageLabels = ["Product view 1", "Product view 2", "Product view 3", "Product view 4"];
@@ -41,6 +42,20 @@ export function ProductShowcase() {
 
   function changeImage(direction: -1 | 1) {
     setActiveImage((current) => (current + direction + images.length) % images.length);
+  }
+
+  function handleTouchStart(event: TouchEvent<HTMLDivElement>) {
+    touchStartX.current = event.touches[0]?.clientX ?? null;
+  }
+
+  function handleTouchEnd(event: TouchEvent<HTMLDivElement>) {
+    if (touchStartX.current === null) return;
+    const touchEndX = event.changedTouches[0]?.clientX;
+    if (touchEndX === undefined) return;
+    const distance = touchEndX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(distance) < 45) return;
+    changeImage(distance < 0 ? 1 : -1);
   }
 
   function addToCart() {
@@ -54,7 +69,11 @@ export function ProductShowcase() {
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.9fr] lg:gap-20">
           <div>
-            <div className="relative aspect-square overflow-hidden bg-forest-muted">
+            <div
+              className="relative aspect-square touch-pan-y overflow-hidden bg-forest-muted"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
               <Image
                 key={activeImage}
                 src={images[activeImage]}
